@@ -1,0 +1,142 @@
+{
+	//  Core -> Editor
+	//-----------------------------------
+	"editor.autoClosingBrackets": "always",
+	"editor.autoClosingDelete": "never",
+	"editor.autoClosingQuotes": "always",
+	"editor.autoIndent": "keep",
+	"editor.bracketPairColorization.enabled": true,
+	"editor.codeActionsOnSave": {
+		// "source.fixAll.eslint": true,
+		// "source.fixAll.markdownlint": true,
+		// "source.fixAll.stylelint": true
+	},
+	"editor.codeLensFontFamily": "'cascadia code'",
+	"editor.cursorBlinking": "phase",
+	"editor.cursorStyle": "underline",
+	"editor.detectIndentation": false,
+	"editor.folding": false,
+	"editor.fontFamily": "'cascadia code'",
+	"editor.fontLigatures": true,
+	"editor.fontSize": 12,
+	"editor.formatOnPaste": true,
+	"editor.formatOnSave": true,
+	"editor.formatOnSaveMode": "modificationsIfAvailable",
+	"editor.formatOnType": true,
+	"editor.guides.bracketPairs": "active",
+	"editor.insertSpaces": false,
+	"editor.minimap.enabled": false,
+	"editor.minimap.renderCharacters": false,
+	"editor.renderWhitespace": "all",
+	"editor.tabSize": 2,
+	"editor.wordWrap": "on",
+	"editor.wordWrapColumn": 120,
+	//  Core -> Extensions
+	//-----------------------------------
+	"extensions.ignoreRecommendations": true,
+	//  Core -> Files
+	//-----------------------------------
+	"files.exclude": {
+		"**/.git": false
+	},
+	//  Core -> Keyboard
+	//-----------------------------------
+	"keyboard.touchbar.enabled": false,
+	//  Core -> Security
+	//-----------------------------------
+	"security.workspace.trust.banner": "never",
+	"security.workspace.trust.startupPrompt": "never",
+	"security.workspace.trust.untrustedFiles": "open",
+	//  Core -> Terminal
+	//-----------------------------------
+	"terminal.external.osxExec": "iTerm.app",
+	"terminal.integrated.allowChords": false,
+	"terminal.integrated.automationProfile.linux": {},
+	"terminal.integrated.cursorBlinking": true,
+	"terminal.integrated.cursorStyle": "underline",
+	"terminal.integrated.defaultProfile.osx": "zsh",
+	"terminal.integrated.minimumContrastRatio": 4.5,
+	//  Core -> Window
+	//-----------------------------------
+	"window.zoomLevel": 1,
+	//  Core -> Workbench
+	//-----------------------------------
+	"workbench.activityBar.visible": false,
+	"workbench.colorTheme": "Winter is Coming (Dark Blue)",
+	"workbench.editor.closeOnFileDelete": true,
+	"workbench.editor.mouseBackForwardToNavigate": false,
+	"workbench.editor.showTabs": true,
+	"workbench.iconTheme": "vscode-great-icons",
+	"workbench.settings.useSplitJSON": true,
+	"workbench.startupEditor": "none",
+	"workbench.tips.enabled": false,
+	//  Extensions -> Auto-Build Marlin
+	//-----------------------------------
+	"auto-build.defaultEnv.name": "STM32G0B1RE_btt",
+	//  Extensions -> EditorConfig
+	//-----------------------------------
+	// "editorconfig.generateAuto": false,
+	// "editorconfig.template": "/Users/nick/Sites/internal/dotfiles/.editorconfig",
+	//  Extensions -> ESLint
+	//-----------------------------------
+	// "eslint.probe": [
+	// 	"javascript",
+	// 	"json",
+	// 	"html",
+	// 	"vue"
+	// ],
+	// "eslint.validate": [
+	// 	"javascript",
+	// 	"json",
+	// 	"html",
+	// 	"vue"
+	// ],
+	// "eslint.options": {
+	// 	"overrideConfigFile": "/Users/nick/Sites/internal/dotfiles/.eslintrc.js"
+	// },
+	// "eslint.packageManager": "npm",
+	//  Extensions -> GitLens
+	//-----------------------------------
+	"gitlens.defaultDateLocale": "en-US",
+	"gitlens.defaultDateFormat": "YYYY-MM-DD HH:mm Z ",
+	"gitlens.defaultDateShortFormat": "YYYY-MM-DD",
+	"gitlens.defaultTimeFormat": "HH:mm",
+	//  Extensions -> Git
+	//-----------------------------------
+	"git.autofetch": true,
+	"git.ignoreMissingGitWarning": true,
+	//  Extension -> Markdownlint
+	//-----------------------------------
+	// "markdownlint.config": {
+	// 	"extends": "/Users/nick/Sites/internal/dotfiles/.markdownlint.json"
+	// },
+	// "markdownlint.focusMode": true,
+	//  Extensions -> RedHat
+	//-----------------------------------
+	"redhat.telemetry.enabled": false,
+	//  Extensions -> Stylelint
+	//-----------------------------------
+	// "css.validate": false,
+	// "less.validate": false,
+	// "scss.validate": false,
+	// "stylelint.validate": [
+	// 	"css",
+	// 	"scss",
+	// 	"sass"
+	// ],
+	// "stylelint.configFile": "/Users/nick/Sites/internal/dotfiles/stylelint.config.js",
+	// "stylelint.packageManager": "npm",
+	//  Language -> PHP
+	//-----------------------------------
+	"[php]": {},
+	//  Language -> Markdown
+	//-----------------------------------
+	"[markdown]": {},
+	// "[scss]": {
+	// 	"editor.defaultFormatter": "stylelint.vscode-stylelint"
+	// },
+	// "eslint.debug": true,
+	// "eslint.format.enable": true,
+	// "eslint.run": "onSave",
+	// "eslint.runtime": "/opt/homebrew/bin/eslint"
+}
