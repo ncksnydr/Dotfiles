@@ -1,0 +1,12 @@
+#/
+	#  ESLint ignore
+	#  @link https://eslint.org/docs/latest/user-guide/configuring/ignoring-code Documentation.
+#/
+
+node_modules
+build
+dist
+coverage
+.pnp.*
+.yarn
+test/e2e/workspace
