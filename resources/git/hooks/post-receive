@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Check out the files
+git --work-tree=/var/www/nicksnyder.is/wiki/web  --git-dir=/var/www/nicksnyder.is/wiki/Nickipedia.git  checkout -f
+
+# Update Composer
+cd /var/www/nicksnyder.is/wiki/web
+composer install --no-dev
+
+# PHP Artisan
+php artisan migrate --force
+php artisan cache:clear
+php artisan config:clear
+php artisan view:clear
