@@ -1,0 +1,43 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = tab
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+#  JSON
+#------------------------------------
+[*.json]
+indent_size = 2
+indent_style = tab
+
+#  Makefile
+#------------------------------------
+[Makefile]
+indent_style = tab
+
+#  Markdown
+#------------------------------------
+[*.md]
+indent_size = 2
+indent_style = space
+trim_trailing_whitespace = false
+
+#  PHP
+#------------------------------------
+[*.php]
+charset = utf-8
+end_of_line = lf
+indent_style = tab
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+#  Python, YAML
+#------------------------------------
+[*.{yaml,yml,py}]
+indent_size = 4
+indent_style = space
