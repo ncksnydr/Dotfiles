@@ -10,6 +10,14 @@
 #   Project-specific rules
 # --------------------------------------------------------------------------
 
+#   Temporarily ignoring
+#   @note For items that I am actively using, but need to
+#         organize and vet a bit more.
+# ------------------------------------------------------------
+
+./resources/zsh/bin
+./resources/zsh/cli
+
 
 #   Configuration files
 # ------------------------------------------------------------
