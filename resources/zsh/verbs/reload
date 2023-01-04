@@ -1,0 +1,7 @@
+# --------------------------------------------------------------------------
+#   ZSH → Verbs → Reload
+#   @see https://bit.ly/2AD7bYb
+# --------------------------------------------------------------------------
+
+# Reloads the current Shell profile session.
+alias reload-shell="source $HOME/.zshrc";

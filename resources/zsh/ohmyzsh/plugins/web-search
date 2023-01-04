@@ -1,0 +1,11 @@
+# --------------------------------------------------------------------------
+#   ZSH → OhMyZSH → Plugins → Web Search
+#   @see https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/web-search
+# --------------------------------------------------------------------------
+
+# TODO Add more search engines.
+ZSH_WEB_SEARCH_ENGINES=(
+	youtube "https://www.youtube.com/results?search_query="
+)
+
+# TODO Add aliases for included search engines.

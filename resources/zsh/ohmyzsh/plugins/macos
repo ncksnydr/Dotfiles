@@ -1,0 +1,23 @@
+# --------------------------------------------------------------------------
+#   ZSH → OhMyZSH → Plugins → macOS
+#   @see https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/macos
+# --------------------------------------------------------------------------
+
+# Open a specified man page in Preview app.
+alias show-man="man-preview"
+
+# Hide the hidden files in Finder.
+alias hide-files="hidefiles"
+
+# Show hidden files in Finder.
+alias show-files="showfiles"
+
+# Control Spotify and search by artist, album, track.
+alias spotify="spotify"
+
+# Remove .DS_Store files recursively in a directory.
+alias remove-dsstore="rmdsstore"
+alias remove-ds="remove-dsstore"
+
+# Restart the Bluetooth daemon.
+alias restart-bluetooth="btrestart"

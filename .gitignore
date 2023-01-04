@@ -15,8 +15,8 @@
 #         organize and vet a bit more.
 # ------------------------------------------------------------
 
-./resources/zsh/bin
-./resources/zsh/cli
+resources/zsh/bin
+resources/zsh/cli
 
 
 #   Configuration files

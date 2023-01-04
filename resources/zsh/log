@@ -1,0 +1,58 @@
+# --------------------------------------------------------------------------
+#   ZSH → Log
+# --------------------------------------------------------------------------
+
+# Log bold text.
+# @usage log-bold "Hello world".
+log-bold-text() {
+  printf "${bold}%s${reset}\n" "$@"
+}
+
+# Log error message.
+# @usage log-error-message "Hello world".
+log-error-message() {
+	printf "\n";
+  printf "${underline}${bold}${red}✖ ERROR ${reset}\n"
+	printf "${red}%s${reset}\n" "------------------------------";
+  printf "${red}%s${reset}\n" "$@";
+  printf "\n";
+  exit 1;
+}
+
+# Log header text; should be used for each script section.
+# @usage log-header "Hello world".
+log-header() {
+  printf "\n${bold}${bg_magenta}${white}==========  %s  ==========${reset}\n" "$@"
+}
+
+# Log intro flag; should be used once per script.
+# @usage log-intro "Hello world".
+log-intro() {
+  printf "${bold}${bg_magenta}${white}      $1      ${reset}\n\n";
+}
+
+# Log note; should be used for listing items.
+# @usage log-note "Hello world".
+log-note() {
+  printf "${bold}${white}➜${reset}  ${white}%s${reset}\n" "$@"
+}
+
+# Log success message.
+# @usage log-success-message "Hello world".
+log-success-message() {
+  printf "\n";
+  printf "${green}_____________________________________________%s${reset}\n"
+  printf "${green}✔ %s${reset}\n" "$@"
+}
+
+# Log underlined text.
+# @usage log-underlined-text "Hello world".
+log-underlined-text() {
+  printf "${underline}${bold}%s${reset}\n" "$@"
+}
+
+# Log warning message.
+# @usage log-warning-message "Hello world".
+log-warning-message() {
+  printf "${tan}➜ %s${reset}\n" "$@"
+}

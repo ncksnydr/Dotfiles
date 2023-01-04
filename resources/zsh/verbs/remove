@@ -1,0 +1,22 @@
+# --------------------------------------------------------------------------
+#   ZSH → Verbs → Remove
+#   @see https://bit.ly/2AD7bYb
+# --------------------------------------------------------------------------
+
+# Recursively finds and deletes `.DS_Store` files.
+alias remove-dsstore="find . -name '*.DS_Store' -type f -exec rm -r {} +";
+
+# Remove punctuation from string.
+# @usage kill-punctuation "I can't wait!!!"
+# @returns I cant wait
+function remove-punctuation {
+	STR=$1 | sed -s "s/^\(\(\"\(.*\)\"\)\|\('\(.*\)'\)\)\$/\\3\\5/g"
+  echo "$STR" | tr -d '[:punct:]';
+}
+
+# Removes all `vendor` and `node_modules` directories and files (relative to the current directory).
+# @see ./create/create-archive
+function remove-vendor-files {
+	find . -name {node_modules,vendor} -type d -exec rm -r {} +;
+	log-success-message "All vendor and node_modules directories removed.";
+}

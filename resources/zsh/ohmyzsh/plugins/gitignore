@@ -1,0 +1,20 @@
+# --------------------------------------------------------------------------
+#   ZSH → OhMyZSH → Plugins → Gitignore
+#   @see https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/gitignore
+# --------------------------------------------------------------------------
+
+# Add programming language settings to your projects .gitignore.
+function add-gitignore {
+	if [ $# -eq 0 ]; then
+		log-error-message "Please provide a language. Use `show-gitignore` to view options."
+	fi
+	gi $1 >> .gitignore
+}
+
+# Show git-ignore output on the command line.
+function show-gitignore {
+	if [ $# -eq 0 ]; then
+		gi list
+	fi
+	gi $1;
+}

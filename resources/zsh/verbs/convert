@@ -1,0 +1,134 @@
+# --------------------------------------------------------------------------
+#   ZSH → Verbs → Convert
+#   @see https://bit.ly/2AD7bYb
+# --------------------------------------------------------------------------
+
+# TODO Add documentation for `convert-audio`.
+function convert-audio {
+	# Exit without error if no arguements are provided.
+	if [ $# -eq 0 ]; then
+		log-error-message "No arguments provided. Please provide both an input and output format without punctuation.";
+	fi
+
+	# If a second argument is not provided, default to settings for `.mp3`.
+	if [ $2 -eq 0 ]; then
+		AUD_CONTAINER="mp3"
+	else
+		AUD_CONTAINER=$2
+	fi
+
+	# Set appropriate audio codex for the intended container.
+	case $2 in
+		mka | webm | ogg | caf)
+			AUD_CODEX="libopus"
+		;;
+		mp3)
+			AUD_CODEX="libmp3lame"
+		;;
+		wav)
+			AUD_CODEX="pcm_s16le"
+		;;
+		aac | m4a)
+			AUD_CODEX="libfdk_aac"
+		;;
+		*)
+			AUD_CODEX=""
+		;;
+	esac
+
+	# Loop through options that match the input format; convert to output format.
+	for i in *.$1; do
+		ffmpeg -i $i -c:a $AUD_CODEX -f $AUD_CONTAINER $(basename "${i/.$1}").$AUD_CONTAINER;
+		sleep 5;
+	done
+}
+
+# TODO Add documentation for `convert-video`.
+function convert-video {
+	# Exit without error if no arguements are provided.
+	if [ $# -eq 0 ]; then
+		log-error-message "No arguments provided. Please provide both an input and output format without punctuation.";
+	fi
+
+	# If a second argument is not provided, default to settings for `.mp4`.
+	if [ $2 -eq 0 ]; then
+		VID_CONTAINER="mp4"
+	else
+		VID_CONTAINER=$2
+	fi
+
+	# Set appropriate audio codex for the intended container.
+	case $2 in
+		webm | mkv)
+			AUD_CODEC="libopus"
+			VID_CODEC="libvpx-vp9"
+		;;
+		mp4 | *)
+			AUD_CODEC="libmp3lame"
+			VID_CODEC="libx264"
+		;;
+	esac
+
+	# Loop through input files and convert to desired output.
+	for i in *.$1 ; do
+		ffmpeg -i $i -c:v $VID_CODEC -pass 1 -b:v 1500K -threads 8 -speed 4 -tile-columns 6 -frame-parallel 1 -an -f $VID_CONTAINER null/
+		ffmpeg -i $i -c:v $VID_CODEC -pass 2 -b:v 1500K -threads 8 -speed 1 -tile-columns 6 -frame-parallel 1 -auto-alt-ref 1 -lag-in-frames 25 -c:a $AUD_CODEC -b:a 64k -f $VID_CONTAINER $(basename "${i/.$1}").$VID_CONTAINER;
+		sleep 5;
+	done
+}
+
+
+# Converts spaces in a string to hyphens.
+# @usage convert-spaces-to-kebab "Hello World"
+# @returns Hello-World
+function convert-spaces-to-kebab {
+  echo ${1// /-};
+}
+
+# Converts spaces in a string to underscores.
+# @usage convert-spaces-to-underscore "Hello World"
+# @returns Hello_World
+function convert-spaces-to-underscore {
+  echo ${1// /_};
+}
+
+# Converts characters in a string to lowercase.
+# @usage convert-string-to-lowercase "Hello World"
+# @returns hello world
+function convert-string-to-lowercase {
+  echo "$1" | tr '[:upper:]' '[:lower:]';
+}
+
+# Converts a string to a URL-friendly slug (i.e. make lowercase and replace spaces).
+# @usage convert-string-to-slug "Hello World"
+# @returns hello-world
+function convert-string-to-slug {
+  RAW=$1;
+  TYPE=$2;
+
+  # Remove punctuation.
+  RAW_PUNC="$(remove_punctuation $RAW)";
+
+  # Set to lowercase.
+  RAW_LC="$(to_lower $RAW_PUNC)";
+
+  # Check for modifier; add kebab or underscore.
+  if [ -z $TYPE ]; then
+    RAW_SLUG="$(kebab $RAW_LC)";
+  else
+    if [ $TYPE = '--underscore' ]; then
+      RAW_SLUG="$(underscore $RAW_LC)";
+    else
+      RAW_SLUG="$(kebab $RAW_LC)";
+    fi
+  fi
+
+  echo $RAW_SLUG;
+}
+
+# Converts characters in a string to uppercase.
+# @usage convert-string-to-uppercase "Hello World"
+# @returns HELLO WORLD
+function convert-string-to-uppercase {
+  echo "$1" | tr '[:lower:]' '[:upper:]';
+}

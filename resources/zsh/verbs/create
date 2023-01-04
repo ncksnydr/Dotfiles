@@ -1,0 +1,24 @@
+# --------------------------------------------------------------------------
+#   ZSH → Verbs → Create
+#   @see https://bit.ly/2AD7bYb
+# --------------------------------------------------------------------------
+
+# Removes `.DS_Store` files, `node_module`/`vendor` directories, and then creates `.zip` of directory.
+# @usage create-archive
+# @returns `.zip` file.
+function create-archive {
+	echo $(remove-dsstore);
+	echo $(remove-vendor-files);
+	zip -r "archive_$(date +%Y-%m-%d).zip" . ;
+}
+
+# Creates a data/MIME type URL from the provided file.
+# @usage create-data-url text.txt
+# @returns data:inode/x-empty;base64,
+function create-data-url {
+	local mimeType=$(file -b --mime-type "$1");
+	if [[ $mimeType == text/* ]]; then
+		mimeType="${mimeType};charset=utf-8";
+	fi
+	echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')";
+}

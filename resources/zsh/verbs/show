@@ -1,0 +1,36 @@
+# --------------------------------------------------------------------------
+#   ZSH → Verbs → Show
+#   @see https://bit.ly/2AD7bYb
+# --------------------------------------------------------------------------
+
+# Lists files inside a .tar.gz file .
+function show-files-gz {
+	if [ $# -eq 0 ]; then
+		log-error-message "Please provide a filename."
+	fi
+	echo $1
+}
+
+# Lists files inside a .rar file.
+function show-files-rar {
+	if [ $# -eq 0 ]; then
+		log-error-message "Please provide a filename."
+	fi
+	unrar l $1
+}
+
+# Lists files inside a .tar file.
+function show-files-tar {
+	if [ $# -eq 0 ]; then
+		log-error-message "Please provide a filename."
+	fi
+	tar tf $1
+}
+
+# Lists files inside a .zip file.
+function show-files-zip {
+	if [ $# -eq 0 ]; then
+		log-error-message "Please provide a filename."
+	fi
+	unzip -l $1
+}

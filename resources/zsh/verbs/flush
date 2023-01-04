@@ -1,0 +1,11 @@
+# --------------------------------------------------------------------------
+#   ZSH → Verbs → Flush
+#   @see https://bit.ly/2AD7bYb
+# --------------------------------------------------------------------------
+
+# Flushes the DNS cache.
+# @usage flush-dns
+alias flush-dns='dscacheutil -flushcache && killall -HUP mDNSResponder'
+
+# Flushes the Shell history.
+alias flush-history="history -p"

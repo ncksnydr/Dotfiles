@@ -1,0 +1,9 @@
+# --------------------------------------------------------------------------
+#   ZSH → Verbs → Count
+#   @see https://bit.ly/2AD7bYb
+# --------------------------------------------------------------------------
+
+# Counts the number of files in the current directory.
+# @usage count-files
+# @returns 6
+alias count-files='echo $(ls -1 | wc -l)';
