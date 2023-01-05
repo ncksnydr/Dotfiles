@@ -77,8 +77,13 @@
 	//-----------------------------------
 	// "editorconfig.generateAuto": false,
 	// "editorconfig.template": "/Users/nick/Sites/internal/dotfiles/.editorconfig",
+	
 	//  Extensions -> ESLint
 	//-----------------------------------
+// "eslint.debug": true,
+"eslint.format.enable": true,
+"eslint.run": "onSave",
+"eslint.runtime": "/opt/homebrew/bin/eslint",
 	// "eslint.probe": [
 	// 	"javascript",
 	// 	"json",
@@ -91,10 +96,10 @@
 	// 	"html",
 	// 	"vue"
 	// ],
-	// "eslint.options": {
-	// 	"overrideConfigFile": "/Users/nick/Sites/internal/dotfiles/.eslintrc.js"
-	// },
-	// "eslint.packageManager": "npm",
+	"eslint.options": {
+		"overrideConfigFile": "/Users/nick/Sites/internal/dotfiles/.eslintrc.js"
+	},
+	"eslint.packageManager": "npm",
 	//  Extensions -> GitLens
 	//-----------------------------------
 	"gitlens.defaultDateLocale": "en-US",
@@ -131,12 +136,9 @@
 	"[php]": {},
 	//  Language -> Markdown
 	//-----------------------------------
-	"[markdown]": {},
+	"[markdown]": {}
 	// "[scss]": {
 	// 	"editor.defaultFormatter": "stylelint.vscode-stylelint"
 	// },
-	// "eslint.debug": true,
-	// "eslint.format.enable": true,
-	// "eslint.run": "onSave",
-	// "eslint.runtime": "/opt/homebrew/bin/eslint"
+
 }
