@@ -42,8 +42,8 @@ const babel = () => {
 
 // ESLint
 const eslint = () => {
-	const fileName = ".eslintrules.json";
-	const eslintOptions = buildLinterConfig({ pathToRules: `${lintersPath}/eslint/**/*.js` });
+	const fileName = ".eslintrc.json";
+	const eslintOptions = buildLinterConfig({ pathToRules: `${lintersPath}/eslint/rules/*.js` });
 	storeData(eslintOptions, `${dotfilesPath}/${fileName}`, "json");
 };
 
