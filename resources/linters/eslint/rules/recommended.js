@@ -8,7 +8,11 @@ module.exports = {
 	"extends": ["eslint:recommended"],
 	"env": {
 		"browser": true,
-		"es2021": true
+		"es2022": true,
+		"node": true,
+		"amd": true,
+		"serviceworker": true,
+		"worker": true
 	},
 	"parserOptions": {
 		"ecmaVersion": "latest",

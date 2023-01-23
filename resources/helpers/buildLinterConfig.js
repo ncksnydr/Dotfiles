@@ -43,7 +43,7 @@ const babel = () => {
 // ESLint
 const eslint = () => {
 	const fileName = ".eslintrc.json";
-	const eslintOptions = buildLinterConfig({ pathToRules: `${lintersPath}/eslint/rules/*.js` });
+	const eslintOptions = buildLinterConfig({ pathToRules: `${lintersPath}/eslint/rules/{possibleProblems,recommended}.js` });
 	storeData(eslintOptions, `${dotfilesPath}/${fileName}`, "json");
 };
 
@@ -52,8 +52,8 @@ const eslint = () => {
 // Markdownlint.
 const markdownlint = () => {
 	const fileName = ".markdownlint.json";
-	const rules = buildLinterConfig({ pathToRules: `${lintersPath}/markdownlint/*.js` });
-	storeData(rules, `${dotfilesPath}/${fileName}`, "json");
+	const markdownlintOptions = buildLinterConfig({ pathToRules: `${lintersPath}/markdownlint/*.js` });
+	storeData(markdownlintOptions, `${dotfilesPath}/${fileName}`, "json");
 };
 
 

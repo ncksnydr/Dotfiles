@@ -1,25 +1,20 @@
 {
 	//  Core -> Editor
 	//-----------------------------------
-	"editor.autoClosingBrackets": "always",
+	"editor.autoClosingBrackets": "never",
 	"editor.autoClosingDelete": "never",
-	"editor.autoClosingQuotes": "always",
+	"editor.autoClosingQuotes": "never",
 	"editor.autoIndent": "keep",
 	"editor.bracketPairColorization.enabled": true,
-	"editor.codeActionsOnSave": {
-		// "source.fixAll.eslint": true,
-		// "source.fixAll.markdownlint": true,
-		// "source.fixAll.stylelint": true
-	},
 	"editor.codeLensFontFamily": "'cascadia code'",
 	"editor.cursorBlinking": "phase",
 	"editor.cursorStyle": "underline",
 	"editor.detectIndentation": false,
 	"editor.folding": false,
 	"editor.fontFamily": "'cascadia code'",
-	"editor.fontLigatures": true,
+	"editor.fontLigatures": false,
 	"editor.fontSize": 12,
-	"editor.formatOnPaste": true,
+	"editor.formatOnPaste": false,
 	"editor.formatOnSave": true,
 	"editor.formatOnSaveMode": "modificationsIfAvailable",
 	"editor.formatOnType": true,
@@ -36,6 +31,9 @@
 	"extensions.ignoreRecommendations": true,
 	//  Core -> Files
 	//-----------------------------------
+	"files.associations": {
+		"*.json": "jsonc"
+	},
 	"files.exclude": {
 		"**/.git": false
 	},
@@ -77,29 +75,14 @@
 	//-----------------------------------
 	// "editorconfig.generateAuto": false,
 	// "editorconfig.template": "/Users/nick/Sites/internal/dotfiles/.editorconfig",
-	
 	//  Extensions -> ESLint
 	//-----------------------------------
-// "eslint.debug": true,
-"eslint.format.enable": true,
-"eslint.run": "onSave",
-"eslint.runtime": "/opt/homebrew/bin/eslint",
-	// "eslint.probe": [
-	// 	"javascript",
-	// 	"json",
-	// 	"html",
-	// 	"vue"
-	// ],
-	// "eslint.validate": [
-	// 	"javascript",
-	// 	"json",
-	// 	"html",
-	// 	"vue"
-	// ],
-	"eslint.options": {
-		"overrideConfigFile": "/Users/nick/Sites/internal/dotfiles/.eslintrc.js"
-	},
-	"eslint.packageManager": "npm",
+	"eslint.format.enable": true,
+	"eslint.enable": true,
+	"eslint.validate": [
+		"javascript",
+		"vue"
+	],
 	//  Extensions -> GitLens
 	//-----------------------------------
 	"gitlens.defaultDateLocale": "en-US",
@@ -110,35 +93,28 @@
 	//-----------------------------------
 	"git.autofetch": true,
 	"git.ignoreMissingGitWarning": true,
-	//  Extension -> Markdownlint
-	//-----------------------------------
-	// "markdownlint.config": {
-	// 	"extends": "/Users/nick/Sites/internal/dotfiles/.markdownlint.json"
-	// },
-	// "markdownlint.focusMode": true,
 	//  Extensions -> RedHat
 	//-----------------------------------
 	"redhat.telemetry.enabled": false,
-	//  Extensions -> Stylelint
-	//-----------------------------------
-	// "css.validate": false,
-	// "less.validate": false,
-	// "scss.validate": false,
-	// "stylelint.validate": [
-	// 	"css",
-	// 	"scss",
-	// 	"sass"
-	// ],
-	// "stylelint.configFile": "/Users/nick/Sites/internal/dotfiles/stylelint.config.js",
-	// "stylelint.packageManager": "npm",
-	//  Language -> PHP
-	//-----------------------------------
-	"[php]": {},
-	//  Language -> Markdown
-	//-----------------------------------
-	"[markdown]": {}
-	// "[scss]": {
-	// 	"editor.defaultFormatter": "stylelint.vscode-stylelint"
-	// },
-
+	"editorconfig.template": "~/.editorconfig",
+	"editorconfig.generateAuto": false,
+	"gitlens.currentLine.enabled": false,
+	"gitlens.currentLine.scrollable": false,
+	"gitlens.currentLine.pullRequests.enabled": false,
+	"eslint.alwaysShowStatus": true,
+	"eslint.debug": true,
+	"eslint.lintTask.enable": true,
+	"eslint.probe": [
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+		"html",
+		"vue"
+	],
+	"eslint.run": "onSave",
+	"[javascript]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	},
+	"markdown-preview-github-styles.colorTheme": "light"
 }
