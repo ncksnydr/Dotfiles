@@ -9,7 +9,7 @@
 function copy-to-server {
 	# Exit without error if no arguements are provided.
 	if [ $1 -eq 0 ]; then
-		log-error-message "No arguments provided. Please provide both an source and destination.";
+		log-error "No arguments provided. Please provide both an source and destination.";
 		exit 1;
 	fi
 	rsync -avzu --progress -h $1 $SERVER_USER@$SERVER_HOST:$2

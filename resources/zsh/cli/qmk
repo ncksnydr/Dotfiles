@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+# --------------------------------------------------------------------------
+#   ZSH → CLI → QMK
+# --------------------------------------------------------------------------
+
+# Compile Planck keyboard
+alias qmk-compile-planck="qmk compile -kb planck/rev6 -km ncksnydr"
+
+# Compile Preonic keyboard
+alias qmk-compile-preonic="qmk compile -kb preonic/rev3 -km ncksnydr"

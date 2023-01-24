@@ -116,5 +116,6 @@
 	"[javascript]": {
 		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
 	},
-	"markdown-preview-github-styles.colorTheme": "light"
+	"markdown-preview-github-styles.colorTheme": "light",
+	"workbench.editor.untitled.hint": "hidden"
 }
