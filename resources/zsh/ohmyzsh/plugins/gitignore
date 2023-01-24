@@ -6,7 +6,7 @@
 # Add programming language settings to your projects .gitignore.
 function add-gitignore {
 	if [ $# -eq 0 ]; then
-		log-error-message "Please provide a language. Use `show-gitignore` to view options."
+		log-error "Please provide a language. Use `show-gitignore` to view options."
 	fi
 	gi $1 >> .gitignore
 }

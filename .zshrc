@@ -27,7 +27,7 @@ source $DOTFILES_PATH_ZSH/log
 function import-config-files {
 	# Check for parameters.
 	if [ $# -eq 0 ]; then
-		log-error-message "You forgot to add a path to import files."
+		log-error "You forgot to add a path to import files."
 	fi
 
 	# Check if directory is empty.
@@ -65,8 +65,6 @@ HIST_STAMPS="yyyy-mm-dd"
 # Set up plugin queue.
 plugins=(
   zsh-history-enquirer
-
-
 	bgnotify
 	emoji-clock
 	encode64
@@ -76,7 +74,7 @@ plugins=(
 	git-auto-fetch
 	git-extras
 	gitignore
-	# jump
+	jumpmarks
 	macos
   urltools
 	web-search
@@ -124,17 +122,4 @@ import-config-files "$DOTFILES_PATH_ZSH/projects"
 #   @note Take that, $PATH!
 #   @see https://bit.ly/3BYvjUW
 # --------------------------------------------------------------------------
-
-# Set base PATH.
-export PATH="$HOMEBREW_PREFIX/opt/php@8.1/bin:$PATH$HOME/.composer/vendor/bin:$HOME/.config/composer/vendor/bin:${HOMEBREW_PREFIX}/bin:/bin:${PATH}"
-
-# # Add Homebrew.
-# export PATH="${HOMEBREW_PREFIX}/bin:${PATH}"
-
-# # Add Composer.
-# export PATH="$HOME/.config/composer/vendor/bin:${PATH}"
-
-# # Add correct PHP version.
-# export PATH="$HOMEBREW_PREFIX/opt/php@$PHP_VERSION/bin:$PATH"
-
-
+export PATH="$HOMEBREW_PREFIX/opt/php@$PHP_VERSION/bin:$HOME/.config/composer/vendor/bin:$PATH"

@@ -15,8 +15,7 @@
 #         organize and vet a bit more.
 # ------------------------------------------------------------
 
-resources/zsh/bin
-resources/zsh/cli
+
 
 
 #   Configuration files
@@ -40,3 +39,10 @@ babel.config.json
 
 # Markdownlint
 .markdownlint.json
+
+
+#   Others
+# ------------------------------------------------------------
+
+# Any file with a preceding underscore.
+_*
