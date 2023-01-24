@@ -1,22 +1,18 @@
-#/
-	#  Git ignore global configuration file.
-	#  @link https://www.toptal.com/developers/gitignore/ GitIgnore generator.
-	#
-#/
-
-
 # --------------------------------------------------------------------------
+#   Git → Ignore
+#   @see https://www.toptal.com/developers/gitignore
+# --------------------------------------------------------------------------
+
+#
 #   Common build directories and files
 # --------------------------------------------------------------------------
-
 node_modules/
 vendor/
 
 
+#
+#   macOS
 # --------------------------------------------------------------------------
-#   macOS 
-# --------------------------------------------------------------------------
-
 # General
 .DS_Store
 .AppleDouble
@@ -49,8 +45,7 @@ Temporary Items
 *.icloud
 
 
-
-# --------------------------------------------------------------------------
+#
 #   Linux
 # --------------------------------------------------------------------------
 *~
@@ -67,14 +62,11 @@ Temporary Items
 # .nfs files are created when an open file is removed but is still being accessed
 .nfs*
 
-# --------------------------------------------------------------------------
+#
 #   Files
 # --------------------------------------------------------------------------
 
-#   Archives
-# ------------------------------------------------------------
-# It's better to unpack these files and commit the raw source because
-# git has its own built in compression methods.
+# Archives
 *.7z
 *.jar
 *.rar
@@ -106,8 +98,7 @@ Temporary Items
 *.msp
 *.txz
 
-#   Audio
-# ------------------------------------------------------------
+# Audio
 *.aif
 *.iff
 *.m3u
@@ -121,9 +112,7 @@ Temporary Items
 *.ogg
 *.flac
 
-
-#   Images
-# ------------------------------------------------------------
+# Images
 # JPEG
 *.jpg
 *.jpeg
@@ -184,9 +173,7 @@ Temporary Items
 *.3dm
 *.max
 
-
-#   Video
-# ------------------------------------------------------------
+# Video
 *.3g2
 *.3gp
 *.asf
