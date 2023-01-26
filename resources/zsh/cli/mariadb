@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+# --------------------------------------------------------------------------
+#   ZSH → CLI → MariaDB
+# --------------------------------------------------------------------------
+
+# View error log.
+alias mariadb-get-errors='tail /var/log/mysql/mariadb.log'
