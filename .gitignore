@@ -40,6 +40,8 @@ babel.config.json
 # Markdownlint
 .markdownlint.json
 
+# PHP-CS-Fixer
+.php-cs-fixer-rules.json
 
 #   Others
 # ------------------------------------------------------------
