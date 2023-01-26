@@ -7,6 +7,9 @@
 	"editor.autoIndent": "keep",
 	"editor.bracketPairColorization.enabled": true,
 	"editor.codeLensFontFamily": "'cascadia code'",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
 	"editor.cursorBlinking": "phase",
 	"editor.cursorStyle": "underline",
 	"editor.detectIndentation": false,
@@ -77,12 +80,16 @@
 	// "editorconfig.template": "/Users/nick/Sites/internal/dotfiles/.editorconfig",
 	//  Extensions -> ESLint
 	//-----------------------------------
+	"eslint.alwaysShowStatus": true,
 	"eslint.format.enable": true,
+	"eslint.run": "onSave",
 	"eslint.enable": true,
 	"eslint.validate": [
 		"javascript",
-		"vue"
+    "javascriptreact",
+    "vue"
 	],
+	"eslint.runtime": "/opt/homebrew/bin/eslint",
 	//  Extensions -> GitLens
 	//-----------------------------------
 	"gitlens.defaultDateLocale": "en-US",
@@ -112,24 +119,12 @@
 	"gitlens.currentLine.enabled": false,
 	"gitlens.currentLine.scrollable": false,
 	"gitlens.currentLine.pullRequests.enabled": false,
-	"eslint.alwaysShowStatus": true,
-	"eslint.debug": true,
-	"eslint.lintTask.enable": true,
-	"eslint.probe": [
-		"javascript",
-		"javascriptreact",
-		"typescript",
-		"typescriptreact",
-		"html",
-		"vue"
-	],
-	"eslint.run": "onSave",
-	"[javascript]": {
-		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
-	},
 	"markdown-preview-github-styles.colorTheme": "light",
 	"workbench.editor.untitled.hint": "hidden",
 	"[php]": {
 		"editor.defaultFormatter": "junstyle.php-cs-fixer"
+	},
+	"[javascript]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
 	}
 }
