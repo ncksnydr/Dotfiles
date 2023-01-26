@@ -1,18 +1,15 @@
-#/
-	#  Git attributes
-	# 
-#/
+# --------------------------------------------------------------------------
+#   Git → Attributes
+# --------------------------------------------------------------------------
 
 
-# --- Set all files to "text=auto" by default ------ #
+# Set all files to "text=auto" by default
 * text=auto
 
-
-# --------------------------------------------------------------------------
+#
 #   Line-endings
 # --------------------------------------------------------------------------
-
-# --- Archives ------ #
+# Archives
 *.7z              binary
 *.gz              binary
 *.jar             binary
@@ -20,8 +17,7 @@
 *.tar             binary
 *.zip             binary
 
-
-# --- Audio ------ #
+# Audio
 *.kar             binary
 *.m4a             binary
 *.mid             binary
@@ -30,8 +26,7 @@
 *.ogg             binary
 *.ra              binary
 
-
-# --- Configuration files (e.g. .eslintrc or .gitignore) ------ #
+# Configuration files (e.g. .eslintrc or .gitignore).
 .editorconfig     text
 .env              text export-ignore
 .gitattributes    text linguist-language=gitattributes export-ignore
@@ -55,8 +50,7 @@ package.json      text eol=lf
 pnpm-lock.yaml    text eol=lf -diff
 yarn.lock         text -diff
 
-
-# --- Documentation & common working files ------ #
+# Documentation & common working files
 *.csv      text
 *.doc      diff=astextplain
 *.DOC      diff=astextplain
@@ -92,16 +86,14 @@ NEWS              text
 readme            text
 TODO              text export-ignore
 
-
-# --- Font files ------ #
+# Font files
 *.ttf             binary
 *.eot             binary
 *.otf             binary
 *.woff            binary
 *.woff2           binary
 
-
-# --- Graphics ------ #
+# Graphics
 *.ai              binary
 *.bmp             binary
 *.eps             binary
@@ -125,8 +117,7 @@ TODO              text export-ignore
 *.wbmp            binary
 *.webp            binary
 
-
-# --- Source code ------ #
+# Source code
 *.bash            text eol=lf
 *.bat             text eol=crlf
 *.cmd             text eol=crlf
@@ -179,8 +170,7 @@ Dockerfile        text
 *.yaml            text diff=yaml linguist-vendored
 *.yml             text diff=yaml linguist-vendored
 
-
-# --- Video ------ #
+# Video
 *.3gpp            binary
 *.3gp             binary
 *.as              binary
@@ -205,7 +195,7 @@ Dockerfile        text
 *.m             text diff=matlab
 *.mu            text diff=matlab
 
-# --- Binaries ------ #
+# Binaries
 *.p             binary
 *.mex*          binary
 *.fig           binary
@@ -231,7 +221,7 @@ Dockerfile        text
 *.pyz    text diff=python
 *.pyi    text diff=python
 
-# --- Binaries ------ #
+# Binaries
 *.db     binary
 *.p      binary
 *.pkl    binary
@@ -240,7 +230,7 @@ Dockerfile        text
 *.pyd    binary
 *.pyo    binary
 
-# --- Jupyter notebook ------ #
+# Jupyter notebook
 *.ipynb  text
 
 

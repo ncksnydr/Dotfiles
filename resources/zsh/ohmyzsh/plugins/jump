@@ -6,7 +6,7 @@
 # Jump to the given mark.
 function goto {
 	if [ $# -eq 0 ]; then
-		log-error-message "Please provide a name for the jump. Use `show-marks` to view them all."
+		log-error "Please provide a name for the jump. Use `show-marks` to view them all."
 	fi
 	jump $1
 }
@@ -16,7 +16,7 @@ alias mark="goto $@"
 # Remove the given mark.
 function remove-mark {
 	if [ $# -eq 0 ]; then
-		log-error-message "Please provide a name for the jump to remove. Use `show-marks` to view them all."
+		log-error "Please provide a name for the jump to remove. Use `show-marks` to view them all."
 	fi
 	umark $1
 }
@@ -24,7 +24,7 @@ function remove-mark {
 # Create a mark with the given name or with the name of the current directory if none is provided.
 function set-mark {
 	if [ $# -eq 0 ]; then
-		log-error-message "Please provide a name for the jump."
+		log-error "Please provide a name for the jump."
 	fi
 	mark $1
 }
