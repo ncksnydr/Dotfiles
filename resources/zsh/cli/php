@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+# --------------------------------------------------------------------------
+#   ZSH → CLI → PHP
+# --------------------------------------------------------------------------
+
+# Start a PHP server from a directory, optionally specifying the port.
+# @usage php-init-server 1234
+function php-init-server() {
+	local port="${1:-4000}";
+	local ip=$(ipconfig getifaddr en1);
+	sleep 1 && open "http://${ip}:${port}/" &
+	php -S "${ip}:${port}";
+}
+
+# View error log.
+alias php-get-errors='tail /var/log/php/error.log';
