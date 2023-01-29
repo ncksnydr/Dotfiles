@@ -43,6 +43,9 @@ babel.config.json
 # PHP-CS-Fixer
 .php-cs-fixer-rules.json
 
+# Stylelint
+.stylelintrc.json
+
 #   Others
 # ------------------------------------------------------------
 
