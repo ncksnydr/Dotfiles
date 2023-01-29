@@ -5,7 +5,10 @@
 
 module.exports = {
 	"root": true,
-	"extends": ["eslint:recommended"],
+	"extends": [
+		"eslint:recommended",
+		"prettier"
+	],
 	"env": {
 		"browser": true,
 		"es2022": true,
