@@ -67,28 +67,8 @@ const phpCsFixer = () => {
 // Stylelint.
 const stylelint = () => {
 	const fileName = ".stylelintrc.json";
-	const rules = buildLinterConfig({pathToRules: `${lintersPath}/stylelint/rules/*.js`});
-
-	let config = {
-		"extends": [
-			"stylelint-config-standard"
-		],
-		//"customSyntax": "postcss-scss",
-		"plugins": [
-			// "stylelint-a11y",
-			// "stylelint-color-format",
-			// "stylelint-high-performance-animation",
-			// "stylelint-images",
-			// "stylelint-no-restricted-syntax",
-			// "stylelint-no-unresolved-module",
-			// "stylelint-no-unsupported-browser-features",
-			// "stylelint-order",
-			// "stylelint-use-nesting"
-		],
-		"rules": {}
-	};
-	config.rules = rules;
-	storeData(config, `${dotfilesPath}/${fileName}`, "json");
+	const stylelintRules = buildLinterConfig({ pathToRules: `${lintersPath}/stylelint/{avoidErrors,nonStylistic,suggestions}.js` });
+	storeData(stylelintRules, `${dotfilesPath}/${fileName}`, "json");
 };
 
 
