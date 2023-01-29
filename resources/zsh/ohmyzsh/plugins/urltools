@@ -6,7 +6,7 @@
 # URL-decodes the given string.
 function decode-url {
 	if [ $# -eq 0 ]; then
-		log-error-message "Please provide a URL to decode."
+		log-error "Please provide a URL to decode."
 	fi
 	urldecode "$1"
 }
@@ -14,7 +14,7 @@ function decode-url {
 # URL-encodes the given string.
 function encode-url {
 	if [ $# -eq 0 ]; then
-		log-error-message "Please provide a URL to encode."
+		log-error "Please provide a URL to encode."
 	fi
 	urlencode "$1"
 }

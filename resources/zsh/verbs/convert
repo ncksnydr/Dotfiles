@@ -7,7 +7,7 @@
 function convert-audio {
 	# Exit without error if no arguements are provided.
 	if [ $# -eq 0 ]; then
-		log-error-message "No arguments provided. Please provide both an input and output format without punctuation.";
+		log-error "No arguments provided. Please provide both an input and output format without punctuation.";
 	fi
 
 	# If a second argument is not provided, default to settings for `.mp3`.
@@ -47,7 +47,7 @@ function convert-audio {
 function convert-video {
 	# Exit without error if no arguements are provided.
 	if [ $# -eq 0 ]; then
-		log-error-message "No arguments provided. Please provide both an input and output format without punctuation.";
+		log-error "No arguments provided. Please provide both an input and output format without punctuation.";
 	fi
 
 	# If a second argument is not provided, default to settings for `.mp4`.
