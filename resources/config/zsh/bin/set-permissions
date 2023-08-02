@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# ====================================================== #
+#     SET PERMISSIONS                                    #
+# ====================================================== #
+
+#   Set variables
+# ------------------------------------------------------------
+ROOT=$PWD;
+source $ROOT/src/config/runner/editor-config;
+source $ROOT/dist/.env-srvrs;
+
+
+#   Intro
+# ------------------------------------------------------------
+e-intro "Set Permissions";
+
+
+#   Set directory permissions
+# ------------------------------------------------------------
+e-task "Setting directory permissions...";
+for (( i=0; i<"${#WRITEABLE_DIRS[@]}"; i++ )); do
+  DIR="${WRITEABLE_DIRS[$i]}"
+  chmod -R 774 "$APA_ROOT_LOCAL/$DIR";
+done
+
+
+#   Set file permissions
+# ------------------------------------------------------------
+e-task "Setting file permissions...";
+for (( i=0; i<"${#WRITEABLE_FILES[@]}"; i++ )); do
+  FILE="${WRITEABLE_FILES[$i]}"
+  chmod -R 774 "$APA_ROOT_LOCAL/$FILE";
+done
+
+
+#   Outro
+# ------------------------------------------------------------
+e-success "Permissions set"

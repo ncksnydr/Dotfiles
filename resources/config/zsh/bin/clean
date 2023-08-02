@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# ====================================================== #
+#     CLEAN						                                   #
+# ====================================================== #
+
+#   Set variables
+# ------------------------------------------------------------
+ROOT=$PWD;
+source $ROOT/src/config/runner/editor-config;
+source $ROOT/dist/.env-srvrs;
+
+
+
+#   Intro
+# ------------------------------------------------------------
+e-intro "Clean Build Files";
+
+
+
+#   Clean build directories
+# ------------------------------------------------------------
+e-task "Removing build directories...";
+for (( i=0; i<"${#BUILD_DIRS[@]}"; i++ )); do
+  DIR="${BUILD_DIRS[$i]}"
+  rm -rf "$APA_ROOT_LOCAL/$DIR";
+done
+
+
+
+#   Clean build files
+# ------------------------------------------------------------
+e-task "Removing build files...";
+for (( i=0; i<"${#BUILD_FILES[@]}"; i++ )); do
+  FILE="${BUILD_FILES[$i]}"
+  rm -rf "$APA_ROOT_LOCAL/$FILE";
+done
+
+
+
+#   Outro
+# ------------------------------------------------------------
+e-success "Build files cleaned."

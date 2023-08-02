@@ -109,7 +109,7 @@ source $DOTFILES_PATH_ZSH/aliases
 import_config_files "$DOTFILES_PATH_ZSH/cli"
 
 # Projects
-# import_config_files "$DOTFILES_PATH_ZSH/projects"
+import_config_files "$DOTFILES_PATH_ZSH/projects"
 
 
 
@@ -120,4 +120,4 @@ import_config_files "$DOTFILES_PATH_ZSH/cli"
 #   @see https://bit.ly/3BYvjUW
 # --------------------------------------------------------------------------
 
-export PATH="$PATH:$HOME/.composer/vendor/bin:$HOMEBREW_PREFIX/opt/php@$PHP_VERSION/bin"
+export PATH="$HOME/.composer/vendor/bin:$HOMEBREW_PREFIX/opt:$PATH"

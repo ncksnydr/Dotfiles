@@ -36,18 +36,27 @@ babel.config.json
 
 # ESLint
 .eslintrc.json
+.eslintrc
 
 # Markdownlint
 .markdownlint.json
 
 # PHP-CS-Fixer
 .php-cs-fixer-rules.json
+.php-cs-fixer.php
 
 # Stylelint
 .stylelintrc.json
+
+# Prettier
+.prettierrc
 
 #   Others
 # ------------------------------------------------------------
 
 # Any file with a preceding underscore.
 _*
+
+# Vendor files
+node_modules
+vendor
