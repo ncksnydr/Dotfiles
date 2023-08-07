@@ -186,3 +186,18 @@ function get-size {
 # @usage get-week
 # @returns 30
 alias get-week='date +%V';
+
+
+# Merge PDF files, preserving hyperlinks, with optional name (sans .pdf).
+# @usage merge-pdfs
+# @returns A merged `.pdf` file.
+function merge-pdfs {
+	if [ $# -eq 0 ]; then
+		PDF_FILE_NAME='_merged'
+	else
+		PDF_FILE_NAME=$1
+	fi
+	gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=$PDF_FILE_NAME.pdf;
+}
+alias combine-pdfs='merge-pdfs';
+
