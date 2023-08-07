@@ -15,13 +15,12 @@ if [[ -z ${ENVIRONMENT} ]]; then
 	exit 1;
 fi
 
-
 # Import global variables
 source $DOTFILES_PATH_ZSH/exports
 
 # Include custom logger with colors.
-source $DOTFILES_PATH_ZSH/colors
-source $DOTFILES_PATH_ZSH/log
+source $DOTFILES_PATH_ZSH/bin/colors
+source $DOTFILES_PATH_ZSH/bin/log
 
 
 function import_config_files {
