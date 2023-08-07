@@ -101,3 +101,88 @@ alias flush-history="history -p";
 alias clear-history='flush-history';
 alias history-clear='flush-history';
 
+
+# Returns which program(s) are hogging CPU.
+# @usage get-cpu-hogs
+alias get-cpu-hogs='ps wwaxr -o pid,stat,%cpu,time,command | head -10';
+alias cpu-hogs='get-cpu-hogs';
+
+
+# Searches current directory and sub-directories for the string provided.
+# @usage get-directory-location bin
+# @returns ./config/shell/bin
+function get-directory-location {
+	find . -type d -name $@;
+}
+
+# Returns a list of all directories that contain the file name provided.
+# @usage get-file-location convert-audio
+# @returns ./config/shell/bin/convert-audio
+function get-file-location {
+	find . -name $1 | xargs -n1 dirname
+}
+
+# Returns a list of which program(s) are hogging memory.
+# @usage get-memory-hogs
+# @returns list of straight-up H A W G S
+alias get-memory-hogs='top -l 1 -o rsize | head -20';
+alias memory-hogs='get-memory-hogs';
+
+
+# Returns the PID(s) for the program provided.
+# @usage get-pid mariadb
+# @returns 1234
+function get-pid {
+	lsof -t -c "$@";
+}
+
+
+# Returns a randomized string of character (30 characters long by default).
+# @usage get-random-string 12
+# @returns 6djKOXfbR6NF80X4
+function get-random-string {
+  NUM=30;
+  TYPE=base64
+
+  # Check if parameter one was passed and is a valid number.
+  if ! [[ -z $1 ]]; then
+    NUM_REGEX='^[0-9]+$'
+    if [[ $1 =~ $NUM_REGEX ]] ; then
+      NUM=$1;
+    fi
+  fi
+
+  # Check if parameter two was passed and is a valid option.
+  if ! [[ -z $2 ]]; then
+    if [ $2 = 'hex' ] || [ $2 = 'base64' ]; then
+      TYPE=$2;
+    fi
+  fi
+
+  echo $(openssl rand -$TYPE $NUM);
+}
+alias random-string='get-random-string';
+alias ran-str='get-random-string';
+
+
+# Determine size of a file or total size of a directory
+# @usage get-size
+# @returns 4.0K	.env
+function get-size {
+	if du -b /dev/null > /dev/null 2>&1; then
+		local arg=-sbh;
+	else
+		local arg=-sh;
+	fi
+	if [[ -n "$@" ]]; then
+		du $arg -- "$@";
+	else
+		du $arg .[^.]* ./*;
+	fi;
+}
+
+
+# Returns number of the current week.
+# @usage get-week
+# @returns 30
+alias get-week='date +%V';
