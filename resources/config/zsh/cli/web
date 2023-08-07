@@ -70,3 +70,9 @@ alias get-network-interfaces="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*s
 alias network-interfaces='get-network-interfaces';
 
 
+# Removes all `vendor` and `node_modules` directories and files (relative to the current directory).
+# @see ./create/create-archive
+function remove-vendor-files {
+	find . -name {node_modules,vendor} -type d -exec rm -r {} +;
+	log-success "All vendor and node_modules directories removed.";
+}
