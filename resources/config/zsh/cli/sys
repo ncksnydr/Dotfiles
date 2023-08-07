@@ -201,3 +201,8 @@ function merge-pdfs {
 }
 alias combine-pdfs='merge-pdfs';
 
+
+# Reloads the current Shell profile session.
+alias reload-shell="source $HOME/.zshrc";
+alias refresh-shell='reload-shell';
+alias shell-reload='reload-shell';
