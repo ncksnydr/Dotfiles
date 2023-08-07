@@ -66,3 +66,9 @@ function convert-string-to-uppercase {
   echo "$1" | tr '[:lower:]' '[:upper:]';
 }
 alias string-to-uppercase='convert-string-to-uppercase';
+
+
+# Counts the number of files in the current directory.
+# @usage count-files
+# @returns 6
+alias count-files='echo $(ls -1 | wc -l)';
