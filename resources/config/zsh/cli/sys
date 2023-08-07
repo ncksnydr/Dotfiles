@@ -262,3 +262,7 @@ function show-files-zip {
 	fi
 	unzip -l $1
 }
+
+# Make changes to the current cron file.
+# @usage update-cron
+alias update-cron="crontab -e";
