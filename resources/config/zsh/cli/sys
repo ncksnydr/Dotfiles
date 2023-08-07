@@ -223,3 +223,10 @@ function remove-punctuation {
   echo "$STR" | tr -d '[:punct:]';
 }
 
+
+# Set permissions for files and directories (relative to the current directory).
+function set-permissions {
+	find . -type f -exec chmod 644 {} \;
+	find . -type d -exec chmod 755 {} \;
+	log-success "Permissions set.";
+}
