@@ -1,52 +1,7 @@
 #!/usr/bin/env zsh
 # --------------------------------------------------------------------------
 #   ZSH → CLI → Spotify
+#   @see https://github.com/Rigellute/spotify-tui#homebrew
 # --------------------------------------------------------------------------
 
-# Returns the current artist.
-alias spotify-get-artist='spotify status artist';
-
-# Returns the current song.
-alias spotify-get-song='spotify status song';
-
-# Play next song.
-alias spotify-next='spotify next';
-
-# Pause song.
-alias spotify-pause='spotify pause';
-
-# Play song.
-alias spotify-play='spotify play';
-
-
-# Play a specific album.
-function spotify-play-album {
-	# Exit without error if no arguements are provided.
-	if [ $1 -eq 0 ]; then
-		log-error "No arguments provided. Please provide an album to play on Spotify.";
-		exit 1;
-	fi
-	spotify play album $@;
-}
-
-
-# Play a specific artist.
-function spotify-play-artist {
-	# Exit without error if no arguements are provided.
-	if [ $1 -eq 0 ]; then
-		log-error "No arguments provided. Please provide an artist to play on Spotify.";
-		exit 1;
-	fi
-	spotify play artist $@;
-}
-
-
-# Play previous song.
-alias spotify-prev='spotify prev';
-alias spotify-previous='spotify prev';
-
-# Generates a sharing URL to the current song.
-alias spotify-share='spotify share url';
-
-# Toggle shuffle on/off.
-alias spotify-toggle-shuffle='spotify toggle shuffle';
+# TODO Setup spotify-tui
