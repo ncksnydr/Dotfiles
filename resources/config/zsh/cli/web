@@ -1,0 +1,8 @@
+# Creates a Codepen folder and three inital files.
+function build-codepen {
+	SANDBOX='/Users/nick/Sites/sandbox/codepen';
+	mkdir -p $SANDBOX/$1;
+	cp $SANDBOX/index.html $SANDBOX/$1/index.html;
+	cp $SANDBOX/index.js $SANDBOX/$1/index.js;
+	cp $SANDBOX/index.scss $SANDBOX/$1/index.scss;
+}
