@@ -108,11 +108,6 @@ source $DOTFILES_PATH_ZSH/aliases
 # Command line interfaces
 import_config_files "$DOTFILES_PATH_ZSH/cli"
 
-# Projects
-import_config_files "$DOTFILES_PATH_ZSH/projects"
-
-
-
 # --------------------------------------------------------------------------
 #   $PATH
 #   Reshuffle $PATH to ensure correct usage.
