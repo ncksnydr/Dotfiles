@@ -1,0 +1,68 @@
+# --------------------------------------------------------------------------
+#   ZSH → CLI → System
+#   @see https://bit.ly/2AD7bYb
+# --------------------------------------------------------------------------
+
+# Converts spaces in a string to hyphens.
+# @usage convert-spaces-to-kebab "Hello World"
+# @returns Hello-World
+function convert-spaces-to-kebab {
+  echo ${1// /-};
+}
+alias spaces-to-kebab='convert-spaces-to-kebab';
+
+
+# Converts spaces in a string to underscores.
+# @usage convert-spaces-to-underscore "Hello World"
+# @returns Hello_World
+function convert-spaces-to-underscore {
+  echo ${1// /_};
+}
+alias spaces-to-underscore='convert-spaces-to-underscore';
+
+
+# Converts characters in a string to lowercase.
+# @usage convert-string-to-lowercase "Hello World"
+# @returns hello world
+function convert-string-to-lowercase {
+  echo "$1" | tr '[:upper:]' '[:lower:]';
+}
+alias string-to-lowercase='convert-string-to-lowercase';
+
+
+# Converts a string to a URL-friendly slug (i.e. make lowercase and replace spaces).
+# @usage convert-string-to-slug "Hello World"
+# @returns hello-world
+function convert-string-to-slug {
+  RAW=$1;
+  TYPE=$2;
+
+  # Remove punctuation.
+  RAW_PUNC="$(remove_punctuation $RAW)";
+
+  # Set to lowercase.
+  RAW_LC="$(to_lower $RAW_PUNC)";
+
+  # Check for modifier; add kebab or underscore.
+  if [ -z $TYPE ]; then
+    RAW_SLUG="$(kebab $RAW_LC)";
+  else
+    if [ $TYPE = '--underscore' ]; then
+      RAW_SLUG="$(underscore $RAW_LC)";
+    else
+      RAW_SLUG="$(kebab $RAW_LC)";
+    fi
+  fi
+
+  echo $RAW_SLUG;
+}
+alias string-to-slug='convert-string-to-slug';
+
+
+# Converts characters in a string to uppercase.
+# @usage convert-string-to-uppercase "Hello World"
+# @returns HELLO WORLD
+function convert-string-to-uppercase {
+  echo "$1" | tr '[:lower:]' '[:upper:]';
+}
+alias string-to-uppercase='convert-string-to-uppercase';
