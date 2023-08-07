@@ -1,3 +1,9 @@
+# --------------------------------------------------------------------------
+#   ZSH → CLI → Web
+#   @see https://bit.ly/2AD7bYb
+# --------------------------------------------------------------------------
+
+
 # Creates a Codepen folder and three inital files.
 function build-codepen {
 	SANDBOX='/Users/nick/Sites/sandbox/codepen';
@@ -6,3 +12,10 @@ function build-codepen {
 	cp $SANDBOX/index.js $SANDBOX/$1/index.js;
 	cp $SANDBOX/index.scss $SANDBOX/$1/index.scss;
 }
+
+# Flushes the DNS cache.
+# @usage flush-dns
+alias flush-dns='dscacheutil -flushcache && killall -HUP mDNSResponder';
+alias clear-dns='flush-dns';
+alias dns-clear='flush-dns';
+
