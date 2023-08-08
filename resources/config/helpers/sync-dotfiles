@@ -1,0 +1,9 @@
+#!/usr/bin/env
+
+# ESLint
+ln -s $DOTFILES_PATH/.eslintrc $HOME/.eslintrc;
+ln -s $DOTFILES_PATH/.eslintignore $HOME/.eslintignore;
+
+# Markdownlint
+ln -s $DOTFILES_PATH/.markdownlint.json $HOME/.markdownlint.json;
+

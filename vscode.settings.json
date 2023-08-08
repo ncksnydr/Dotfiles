@@ -1,5 +1,5 @@
 {
-	//  Core -> Editor
+  //  Core -> Editor
   //-----------------------------------
   "editor.autoClosingBrackets": "always",
   "editor.autoClosingQuotes": "always",
@@ -94,9 +94,6 @@
   ],
   "eslint.run": "onSave",
   "eslint.validate": ["javascript", "javascriptreact", "vue"],
-  "eslint.options": {
-    "overrideConfigFile": "/Users/nick/Sites/internal/dotfiles/.eslintrc"
-  },
 
   //  Extensions -> Git
   //-----------------------------------
@@ -121,7 +118,7 @@
   //  Extensions -> Prettier
   //-----------------------------------
   "prettier.useEditorConfig": false,
-	
+
   //  Extensions -> RedHat
   //-----------------------------------
   "redhat.telemetry.enabled": false,
