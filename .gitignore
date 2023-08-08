@@ -31,16 +31,6 @@
 #   Build files
 # ------------------------------------------------------------
 
-# Babel
-babel.config.json
-
-# ESLint
-.eslintrc.json
-.eslintrc
-
-# Markdownlint
-.markdownlint.json
-
 # PHP-CS-Fixer
 .php-cs-fixer-rules.json
 .php-cs-fixer.php
