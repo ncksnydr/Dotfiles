@@ -31,10 +31,6 @@
 #   Build files
 # ------------------------------------------------------------
 
-# PHP-CS-Fixer
-.php-cs-fixer-rules.json
-.php-cs-fixer.php
-
 # Stylelint
 .stylelintrc.json
 
