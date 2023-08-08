@@ -27,15 +27,9 @@
 # Git includes
 ./resources/git/**/*.inc
 
-
 #   Build files
 # ------------------------------------------------------------
 
-# Stylelint
-.stylelintrc.json
-
-# Prettier
-.prettierrc
 
 #   Others
 # ------------------------------------------------------------
