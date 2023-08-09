@@ -16,3 +16,9 @@ ln -s $DOTFILES_PATH/.prettierignore $HOME/.prettierignore;
 
 # Stylelint
 ln -s $DOTFILES_PATH/.stylelintrc.json $HOME/.stylelintrc.json;
+
+# Git Config
+ln -s $DOTFILES_PATH/.gitconfig $HOME/.gitconfig;
+
+
+echo 'Dotfile symlinks created.';
