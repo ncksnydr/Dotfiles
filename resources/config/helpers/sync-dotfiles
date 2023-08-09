@@ -20,5 +20,8 @@ ln -s $DOTFILES_PATH/.stylelintrc.json $HOME/.stylelintrc.json;
 # Git Config
 ln -s $DOTFILES_PATH/.gitconfig $HOME/.gitconfig;
 
+# Browserslist
+ln -s $DOTFILES_PATH/.browserslistrc $HOME/.browserslistrc;
+
 
 echo 'Dotfile symlinks created.';
