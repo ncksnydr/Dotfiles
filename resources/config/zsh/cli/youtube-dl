@@ -1,0 +1,10 @@
+#!/usr/bin/env
+
+# --------------------------------------------------------------------------
+#   ZSH → CLI → youtube-dl
+#   @see https://bit.ly/2AD7bYb
+# --------------------------------------------------------------------------
+
+function botw-dl {
+	youtube-dl $1 -o '$HOME/Desktop/botw/%(title)s/%(title)s.%(ext)s'
+}

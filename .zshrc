@@ -114,4 +114,4 @@ import_config_files "$DOTFILES_PATH_ZSH/cli"
 #   @see https://bit.ly/3BYvjUW
 # --------------------------------------------------------------------------
 
-export PATH="$HOME/.composer/vendor/bin:$HOMEBREW_PREFIX/opt:$PATH"
+export PATH="$HOME/.composer/vendor/bin:$HOMEBREW_PREFIX/bin:$PATH"

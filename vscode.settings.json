@@ -159,7 +159,10 @@
   //  Language -> JavaScript/Vue
   //-----------------------------------
   "[javascript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "javascript.updateImportsOnFileMove.enabled": "always"
-  }
+  },
+  "window.restoreWindows": "none",
+  "window.openFoldersInNewWindow": "on",
+  "window.openFilesInNewWindow": "on"
 }
