@@ -50,7 +50,8 @@ alias grep="grep --color=auto"
 #   L
 # ------------------------------------------------------------
 # Always list everything in a directory.
-alias ls="ls -abl --color"
+alias ls="exa -alh --git --icons"
+
 
 # Always list everything in a directory and subdirectories.
 alias lsr="ls -lARFh --color"

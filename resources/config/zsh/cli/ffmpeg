@@ -81,3 +81,15 @@ function convert-video {
 # Aliases for `convert-video`.
 alias ffmpeg-video='convert-video';
 alias ffmpeg-convert-video='convert-video';
+
+# Convert HEIF to JPG
+# @see https://pypi.org/project/heif-convert/
+function convert-heif {
+	heif-convert $1.heif $1.jpg
+}
+
+# Convert HEIC to JPG
+# @see https://pypi.org/project/heif-convert/
+function convert-heic {
+	heif-convert $1.heic $1.jpg
+}
