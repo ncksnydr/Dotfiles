@@ -1,8 +1,0 @@
-# --------------------------------------------------------------------------
-#   ZSH → Verbs → Update
-#   @see https://bit.ly/2AD7bYb
-# --------------------------------------------------------------------------
-
-# Make changes to the current cron file.
-# @usage update-cron
-alias update-cron="crontab -e";

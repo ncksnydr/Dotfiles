@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+# --------------------------------------------------------------------------
+#   ZSH → CLI → Valet
+# --------------------------------------------------------------------------
+
+# Adds and secures the provided localhost name.
+# @usage valet-create site-name
+	function valet-create {
+		valet link $1 && valet secure $1;
+	}
+
+# Unsecures and removes the provided localhost name.
+# @usage valet-destroy site-name
+function valet-destroy {
+	valet unsecure $1 && valet unlink $1;
+}
+
+# Lists all of the active sites created by Valet.
+alias valet-list='valet links';

@@ -3,10 +3,11 @@
 	#  @link https://eslint.org/docs/latest/user-guide/configuring/ignoring-code Documentation.
 #/
 
-node_modules
-build
-dist
-coverage
 .pnp.*
 .yarn
+build
+coverage
+dist
+node_modules
 test/e2e/workspace
+vendor

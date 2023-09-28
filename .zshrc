@@ -15,13 +15,12 @@ if [[ -z ${ENVIRONMENT} ]]; then
 	exit 1;
 fi
 
-
 # Import global variables
 source $DOTFILES_PATH_ZSH/exports
 
 # Include custom logger with colors.
-source $DOTFILES_PATH_ZSH/colors
-source $DOTFILES_PATH_ZSH/log
+source $DOTFILES_PATH_ZSH/bin/colors
+source $DOTFILES_PATH_ZSH/bin/log
 
 
 function import_config_files {
@@ -108,11 +107,6 @@ source $DOTFILES_PATH_ZSH/aliases
 # Command line interfaces
 import_config_files "$DOTFILES_PATH_ZSH/cli"
 
-# Projects
-# import_config_files "$DOTFILES_PATH_ZSH/projects"
-
-
-
 # --------------------------------------------------------------------------
 #   $PATH
 #   Reshuffle $PATH to ensure correct usage.
@@ -120,4 +114,4 @@ import_config_files "$DOTFILES_PATH_ZSH/cli"
 #   @see https://bit.ly/3BYvjUW
 # --------------------------------------------------------------------------
 
-export PATH="$PATH:$HOME/.composer/vendor/bin:$HOMEBREW_PREFIX/opt/php@$PHP_VERSION/bin"
+export PATH="$HOME/.composer/vendor/bin:$HOMEBREW_PREFIX/bin:$PATH"

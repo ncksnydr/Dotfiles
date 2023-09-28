@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------------
+#   ZSH → CLI → Fun
+# --------------------------------------------------------------------------
+
+# CMatrix
+# @see https://github.com/abishekvashok/cmatrix
+alias enter-matrix='cmatrix';
+
+
+# Playball
+# @see https://github.com/paaatrick/playball
+alias watch-baseball='playball';
+alias baseball-game='playball';

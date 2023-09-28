@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+# --------------------------------------------------------------------------
+#   ZSH → CLI → Spotify
+#   @see https://github.com/Rigellute/spotify-tui#homebrew
+# --------------------------------------------------------------------------
+
+# TODO Setup spotify-tui

@@ -27,27 +27,16 @@
 # Git includes
 ./resources/git/**/*.inc
 
-
 #   Build files
 # ------------------------------------------------------------
 
-# Babel
-babel.config.json
-
-# ESLint
-.eslintrc.json
-
-# Markdownlint
-.markdownlint.json
-
-# PHP-CS-Fixer
-.php-cs-fixer-rules.json
-
-# Stylelint
-.stylelintrc.json
 
 #   Others
 # ------------------------------------------------------------
 
 # Any file with a preceding underscore.
 _*
+
+# Vendor files
+node_modules
+vendor
