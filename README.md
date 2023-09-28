@@ -1,4 +1,3 @@
-# Dotfiles (Dolellamul)
+# Dotfiles
 
-
-# TODO Add WordPress to `./resources/zsh/cli`.
+A collection of Shell aliases, plugins, functions and web development configuration files.
