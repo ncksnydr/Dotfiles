@@ -13,6 +13,19 @@ function build-codepen {
 	cp $SANDBOX/index.scss $SANDBOX/$1/index.scss;
 }
 
+function create-react-app {
+	# Check for custom directory name;
+	if [ $# -eq 0 ]; then
+		REACT_DIR='my-app';
+	else
+		REACT_DIR=$1;
+	fi
+
+	npx create-react-app $REACT_DIR --template typescript;
+	cd $REACT_DIR;
+}
+
+
 # Flushes the DNS cache.
 # @usage flush-dns
 alias flush-dns='dscacheutil -flushcache && killall -HUP mDNSResponder';
