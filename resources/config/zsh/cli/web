@@ -23,6 +23,8 @@ function create-react-app {
 
 	npx create-react-app $REACT_DIR --template typescript;
 	cd $REACT_DIR;
+	npm install -D tailwindcss react-icons;
+	npx tailwindcss init;
 }
 
 
