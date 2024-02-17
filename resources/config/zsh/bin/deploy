@@ -1,38 +1,32 @@
-#!/bin/bash
-# ====================================================== #
-#     DEPLOY                                             #
-# ====================================================== #
-
-
-#   Set variables
-# ------------------------------------------------------------
-ROOT=$PWD;
-source $ROOT/src/config/runner/editor-config;
-source $ROOT/dist/.env-srvrs;
-
+#!/usr/bin/env zsh
+# --------------------------------------------------------------------------
+#   Deploy
+#   Sends files to staging or production server. You will need to set the following
+#   variables in a project's .env file.
+# --------------------------------------------------------------------------
+#   LOCAL_ROOT - Location of project's root directory on local environment.
+#   STAGING_USER - SSH user for staging server.
+#   STAGING_HOST - SSH host for staging server.
+#   STAGING_ROOT - Location of project's root directory on staging server.
+#   PROD_USER - SSH user for production server.
+#   PROD_HOST - SSH host for production server.
+#   PROD_ROOT - Location of project's root directory on production server.
+# --------------------------------------------------------------------------
 
 
 #   Methods
 # ------------------------------------------------------------
-
-#  help
 #  Provide a usage manual for the user.
-#  @function
-#
 help() {
-  e-header "deploy HELP";
-  e-underline "${black}Usage${reset}";
+  log-header "deploy HELP";
+  log-underlined-text "${black}Usage${reset}";
   printf "${bold}${white}npm run deploy -- [--stage] [--stageTest] [--prod] [--prodTest] ${reset}\n";
   printf "\n\n";
   exit 0;
 }
 
 
-
-#  sync
 #  Provide a usage manual for the user.
-#  @function
-#
 sync() {
   DPLY=("${BUILD_DIRS[@]}" "${BUILD_FILES[@]}")
   for (( i=0; i<"${#DPLY[@]}"; i++ )); do
@@ -46,8 +40,8 @@ sync() {
     fi
 
     printf "\n";
-    e-task "Deploying $DIR to $ENV...";
-    rsync $VARS -e 'ssh -p 2222' --size-only --exclude ".*" --exclude ".*/" $APA_ROOT_LOCAL/$STR $REMOTE_USER@$REMOTE_HOST:$REMOTE_DEST
+    log-note "Deploying $DIR to $ENV...";
+    rsync $VARS -e 'ssh -p 2222' --size-only --exclude ".*" --exclude ".*/" $LOCAL_ROOT/$STR $REMOTE_USER@$REMOTE_HOST:$REMOTE_DEST
   done
 }
 
@@ -64,41 +58,41 @@ while [[ ! -z $1 ]]; do
     --stageTest)
       ENV="Staging"
       VARS="-ahvn"
-      REMOTE_USER=$APA_USER_STAGE;
-      REMOTE_HOST=$APA_HOST_STAGE;
-      REMOTE_ROOT=$APA_ROOT_STAGE;
+      REMOTE_USER=$STAGING_USER;
+      REMOTE_HOST=$STAGING_HOST;
+      REMOTE_ROOT=$STAGING_ROOT;
       sync;
-      e-success "Deployment test to $ENV passed.";
+      log-success "Deployment test to $ENV passed.";
       ;;
 
     --stage)
       ENV="Staging"
       VARS="-ahv"
-      REMOTE_USER=$APA_USER_STAGE
-      REMOTE_HOST=$APA_HOST_STAGE
-      REMOTE_ROOT=$APA_ROOT_STAGE
+      REMOTE_USER=$STAGING_USER;
+      REMOTE_HOST=$STAGING_HOST;
+      REMOTE_ROOT=$STAGING_ROOT;
       sync;
-      e-success "Deployed to $ENV";
+      log-success "Deployed to $ENV";
       ;;
 
     --prodTest)
       ENV="Production"
       VARS="-ahvn";
-      REMOTE_USER=$APA_USER_PROD;
-      REMOTE_HOST=$APA_HOST_PROD;
-      REMOTE_ROOT=$APA_ROOT_PROD;
+      REMOTE_USER=$PROD_USER;
+      REMOTE_HOST=$PROD_HOST;
+      REMOTE_ROOT=$PROD_ROOT;
       sync;
-      e-success "Deployment test to $ENV passed.";
+      log-success "Deployment test to $ENV passed.";
       ;;
 
     --prod)
       ENV="Production"
       VARS="-ahv";
-      REMOTE_USER=$APA_USER_PROD;
-      REMOTE_HOST=$APA_HOST_PROD;
-      REMOTE_ROOT=$APA_ROOT_PROD;
+      REMOTE_USER=$PROD_USER;
+      REMOTE_HOST=$PROD_HOST;
+      REMOTE_ROOT=$PROD_ROOT;
       sync;
-      e-success "Deployed to $ENV";
+      log-success "Deployed to $ENV";
       ;;
     *)
       help

@@ -1,7 +1,9 @@
 #!/usr/bin/env zsh
 # --------------------------------------------------------------------------
-#   ZSH → CLI → Spotify
-#   @see https://github.com/Rigellute/spotify-tui#homebrew
+#   ZSH → CLI → Fun
 # --------------------------------------------------------------------------
 
-# TODO Setup spotify-tui
+# Playball
+# @see https://github.com/paaatrick/playball
+alias watch-baseball='playball';
+alias baseball-game='playball';

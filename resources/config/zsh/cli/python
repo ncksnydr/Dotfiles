@@ -3,6 +3,9 @@
 #   ZSH → CLI → Python
 # --------------------------------------------------------------------------
 
+# Shortcut for calling python.
 alias py='python3';
 alias python='python3';
+
+# Shortcut for pip3.
 alias pip='pip3';

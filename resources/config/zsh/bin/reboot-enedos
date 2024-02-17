@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+# --------------------------------------------------------------------------
+#   Reboot Enedos (Homelab)
+#   Reboots the entire array of nodes in the homelab. This script will
+#   only work on Xanadu's local network.
+# --------------------------------------------------------------------------
+
+# Array of nodes; labeled by last digits of local IP address.
+ENEDOS_NODES=(45 46 47 48 49 50 51 52 53);
+
+
+#   Methods
+# ------------------------------------------------------------
+# Private handler function.
+function _reboot-enedos-nodes {
+	for IP in "$@"
+	do
+		ssh -i $SSH_KEY -t $ENEDOS_USER@10.0.1.$IP "systemctl reboot";
+	done
+}
+
+# Reboot all Enedos nodes.
+function reboot-enedos {
+	_reboot-enedos-nodes $ENEDOS_NODES;
+	log-success "Enedos rebooted.";
+}
+
+# Reboot Enedos workers only.
+function reboot-enedos-workers {
+	ENEDOS_WORKERS=("${ENEDOS_NODES[@]:1}")
+	_reboot-enedos-nodes $ENEDOS_WORKERS;
+	log-success "Enedos workers rebooted.";
+}
+
+# Reboot Enedos manager only.
+function reboot-enedos-manager {
+	_reboot-enedos-nodes "${ENEDOS_NODES[1]}";
+	log-success "Raedorvudh rebooted.";
+}
