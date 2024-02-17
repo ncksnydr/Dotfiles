@@ -8,3 +8,5 @@ alias qmk-compile-planck="qmk compile -kb planck/rev6 -km ncksnydr"
 
 # Compile Preonic keyboard
 alias qmk-compile-preonic="qmk compile -kb preonic/rev3 -km ncksnydr"
+
+# TODO Create QMK entries for all keyboards

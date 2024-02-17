@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # --------------------------------------------------------------------------
 #   ZSH → OhMyZSH → Plugins → Jump
 #   @see https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/jump

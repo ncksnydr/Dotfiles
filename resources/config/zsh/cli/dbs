@@ -1,0 +1,35 @@
+#!/usr/bin/env zsh
+# --------------------------------------------------------------------------
+#   ZSH → CLI → Databases
+# --------------------------------------------------------------------------
+
+#   MariaDB/MySQL
+# ------------------------------------------------------------
+alias mariadb-get-errors="tail /var/log/mysql/mariadb.log";
+
+
+alias mariadb-restart="brew services restart mariadb";
+alias mariadb-start="brew services start mariadb";
+alias mariadb-stop="brew services stop mariadb";
+
+alias restart-mariadb="mariadb-restart";
+alias start-mariadb="mariadb-start";
+alias stop-mariadb="mariadb-stop";
+
+
+
+#   PostGres
+# ------------------------------------------------------------
+alias postgres-restart="brew services restart postgressql@14";
+alias postgres-start="brew services start postgressql@14";
+alias postgres-stop="brew services stop postgressql@14";
+
+alias restart-postgres="postgres-restart";
+alias start-postgres="postgres-start";
+alias stop-postgres="postgres-stop";
+
+
+
+# --- PGAdmin ------ #
+alias pgadmin-start="/Applications/pgAdmin\ 4.app/Contents/MacOS/pgAdmin\ 4";
+alias start-pgadmin="pgadmin-start";

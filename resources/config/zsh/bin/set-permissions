@@ -1,38 +1,39 @@
-#!/usr/bin/env bash
-# ====================================================== #
-#     SET PERMISSIONS                                    #
-# ====================================================== #
-
-#   Set variables
-# ------------------------------------------------------------
-ROOT=$PWD;
-source $ROOT/src/config/runner/editor-config;
-source $ROOT/dist/.env-srvrs;
-
+#!/usr/bin/env zsh
+# --------------------------------------------------------------------------
+#   Set permissions
+#   Sets proper project permissions for files and directories.
+#   You will need to set the following variables in a project's .env file.
+# --------------------------------------------------------------------------
+#   LOCAL_ROOT - Location of project's root directory on local environment.
+#   WRITEABLE_DIRS - An array of directories, relative to project root.
+#   WRITEABLE_FILES - An array of files, relative to project root.
+# --------------------------------------------------------------------------
 
 #   Intro
 # ------------------------------------------------------------
-e-intro "Set Permissions";
+log-intro "Set Permissions";
 
 
 #   Set directory permissions
 # ------------------------------------------------------------
-e-task "Setting directory permissions...";
+# TODO Add if statement checking for WRITABLE_DIRS variable.
+log-note "Setting directory permissions...";
 for (( i=0; i<"${#WRITEABLE_DIRS[@]}"; i++ )); do
   DIR="${WRITEABLE_DIRS[$i]}"
-  chmod -R 774 "$APA_ROOT_LOCAL/$DIR";
+  chmod -R 774 "$LOCAL_ROOT/$DIR";
 done
 
 
 #   Set file permissions
 # ------------------------------------------------------------
-e-task "Setting file permissions...";
+# TODO Add if statement checking for WRITEABLE_FILES variable.
+log-note "Setting file permissions...";
 for (( i=0; i<"${#WRITEABLE_FILES[@]}"; i++ )); do
   FILE="${WRITEABLE_FILES[$i]}"
-  chmod -R 774 "$APA_ROOT_LOCAL/$FILE";
+  chmod -R 774 "$LOCAL_ROOT/$FILE";
 done
 
 
 #   Outro
 # ------------------------------------------------------------
-e-success "Permissions set"
+log-success "Permissions set"

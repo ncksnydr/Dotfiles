@@ -1,42 +1,38 @@
 #!/usr/bin/env bash
-# ====================================================== #
-#     CLEAN						                                   #
-# ====================================================== #
-
-#   Set variables
-# ------------------------------------------------------------
-ROOT=$PWD;
-source $ROOT/src/config/runner/editor-config;
-source $ROOT/dist/.env-srvrs;
-
-
+# --------------------------------------------------------------------------
+#   Clean
+#   Removes build files.
+#   You will need to set the following variables in a project's .env file.
+# --------------------------------------------------------------------------
+#   BUILD_DIRS - An array of directories, relative to project root
+#   BUILD_FILES - An array of files, relative to project root
+# --------------------------------------------------------------------------
 
 #   Intro
 # ------------------------------------------------------------
-e-intro "Clean Build Files";
-
+log-intro "Clean build files";
 
 
 #   Clean build directories
 # ------------------------------------------------------------
-e-task "Removing build directories...";
+# TODO Add if statement checking for BUILD_DIRS variable.
+log-note "Removing build directories...";
 for (( i=0; i<"${#BUILD_DIRS[@]}"; i++ )); do
   DIR="${BUILD_DIRS[$i]}"
-  rm -rf "$APA_ROOT_LOCAL/$DIR";
+  rm -rf "$PWD/$DIR";
 done
-
 
 
 #   Clean build files
 # ------------------------------------------------------------
-e-task "Removing build files...";
+# TODO Add if statement checking for BUILD_FILES variable.
+log-note "Removing build files...";
 for (( i=0; i<"${#BUILD_FILES[@]}"; i++ )); do
   FILE="${BUILD_FILES[$i]}"
-  rm -rf "$APA_ROOT_LOCAL/$FILE";
+  rm -rf "$PWD/$FILE";
 done
-
 
 
 #   Outro
 # ------------------------------------------------------------
-e-success "Build files cleaned."
+log-success "Build files cleaned."

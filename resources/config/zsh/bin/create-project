@@ -1,0 +1,105 @@
+#!/usr/bin/env zsh
+
+# --------------------------------------------------------------------------
+#   Create project
+#   Creates a copy of a boilerplate directory.
+# --------------------------------------------------------------------------
+
+
+# Builds a new project based on user prompts.
+# @param $1 - $PROJECT_NAME
+# @param $2 - $PROJECT_KIND
+# @param $3 - $CLIENT_NAME
+# @param $4 - $PROJECT_TYPE
+function _build-new-project {
+
+	# Set build directory based on PROJECT_KIND
+	case $2 in
+		'projects') BUILD_DIR="$DOTFILES_PATH_SITES/$2/$4/$1" ;;
+		'work/clients') BUILD_DIR="$DOTFILES_PATH_SITES/$2/$3/$1" ;;
+		'work/self') BUILD_DIR="$DOTFILES_PATH_SITES/$2/$1";;
+	esac
+
+	# Create new directories.
+	mkdir -p $BUILD_DIR;
+
+	# Copy boilerplate files into new directories.
+	cp -r $DOTFILES_PATH_BOILERPLATES/$4/* $BUILD_DIR;
+
+	# Log success message to user.
+	log-success "New $4 project named $1 created successfully.";
+}
+
+
+function create-project {
+
+	# Greet user.
+	log-intro "Create project from boilerplate";
+
+	# Question 01: Project name.
+	log-note "What is the project name?";
+	read PROJECT_NAME;
+
+	# Convert input to lowercase. 
+	PROJECT_NAME=$(echo $PROJECT_NAME:l)
+
+	# Replace spaces with dashes.
+	PROJECT_NAME=${PROJECT_NAME// /-}
+
+	# Question 02a: Project or Work?
+	log-note "What kind of project? Type the number below.";
+	log-option "1) Project";
+	log-option "2) Work (Client)";
+	log-option "3) Work (Self)";
+	read QUESTION_PROJECT_KIND;
+	
+	# Read user input and build project accordingly.
+	# If an invalid option is entered, throw an error.
+	case $QUESTION_PROJECT_KIND in
+		1) PROJECT_KIND='projects';;
+		2) PROJECT_KIND='work/clients';;
+		3) PROJECT_KIND='work/self';;
+		*) log-error "Invalid option. Only numbers are accepted. Please try again.";;
+	esac
+
+	# Question 02b: Client name?
+	CLIENT_NAME=false;
+	if [ $PROJECT_KIND = 'work/clients' ]; then
+		log-note "What is the client name?";
+		read CLIENT_NAME;
+
+		# Convert input to lowercase.
+		CLIENT_NAME=$(echo $CLIENT_NAME:l)
+
+		# Replace spaces with dashes.
+		CLIENT_NAME=${CLIENT_NAME// /-}
+	fi
+
+
+	# Question 03: Project type.
+	log-note "What is the project type? Type the number below.";
+	log-option "1) Audio";
+	log-option "2) CodePen";
+	log-option "3) Digital";
+	log-option "4) Photo";
+	log-option "5) Physical";
+	log-option "6) Video";
+	log-option "7) Web";
+	read QUESTION_PROJECT_TYPE;
+	
+	# Read user input and build project accordingly.
+	# If an invalid option is entered, throw an error.
+	case $QUESTION_PROJECT_TYPE in
+		1) PROJECT_TYPE='audio';;
+		2) PROJECT_TYPE='codepen';;
+		3) PROJECT_TYPE='digital';;
+		4) PROJECT_TYPE='photo';;
+		5) PROJECT_TYPE='physical';;
+		6) PROJECT_TYPE='video';;
+		7) PROJECT_TYPE='web';;
+		*) log-error "Invalid option. Only numbers are accepted. Please try again.";;
+	esac
+
+	_build-new-project $PROJECT_NAME $PROJECT_KIND $CLIENT_NAME $PROJECT_TYPE;
+
+}

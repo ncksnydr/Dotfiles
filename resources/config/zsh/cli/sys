@@ -1,10 +1,17 @@
+#!/usr/bin/env zsh
 # --------------------------------------------------------------------------
 #   ZSH → CLI → System
 #   @see https://bit.ly/2AD7bYb
 # --------------------------------------------------------------------------
 
-# TODO Clean up this file by categorizing text editor and file manipulator subcategories.
+#   A
+# ------------------------------------------------------------
 
+#   B
+# ------------------------------------------------------------
+
+#   C
+# ------------------------------------------------------------
 
 # Converts spaces in a string to hyphens.
 # @usage convert-spaces-to-kebab "Hello World"
@@ -14,7 +21,6 @@ function convert-spaces-to-kebab {
 }
 alias spaces-to-kebab='convert-spaces-to-kebab';
 
-
 # Converts spaces in a string to underscores.
 # @usage convert-spaces-to-underscore "Hello World"
 # @returns Hello_World
@@ -23,7 +29,6 @@ function convert-spaces-to-underscore {
 }
 alias spaces-to-underscore='convert-spaces-to-underscore';
 
-
 # Converts characters in a string to lowercase.
 # @usage convert-string-to-lowercase "Hello World"
 # @returns hello world
@@ -31,7 +36,6 @@ function convert-string-to-lowercase {
   echo "$1" | tr '[:upper:]' '[:lower:]';
 }
 alias string-to-lowercase='convert-string-to-lowercase';
-
 
 # Converts a string to a URL-friendly slug (i.e. make lowercase and replace spaces).
 # @usage convert-string-to-slug "Hello World"
@@ -61,7 +65,6 @@ function convert-string-to-slug {
 }
 alias string-to-slug='convert-string-to-slug';
 
-
 # Converts characters in a string to uppercase.
 # @usage convert-string-to-uppercase "Hello World"
 # @returns HELLO WORLD
@@ -70,12 +73,10 @@ function convert-string-to-uppercase {
 }
 alias string-to-uppercase='convert-string-to-uppercase';
 
-
 # Counts the number of files in the current directory.
 # @usage count-files
 # @returns 6
 alias count-files='echo $(ls -1 | wc -l)';
-
 
 # Removes `.DS_Store` files, `node_module`/`vendor` directories, and then creates `.zip` of directory.
 # @usage create-archive
@@ -86,7 +87,6 @@ function create-archive {
 	zip -r "archive_$(date +%Y-%m-%d).zip" . ;
 }
 alias create-zip='create-archive';
-
 
 # Creates a data/MIME type URL from the provided file.
 # @usage create-data-url text.txt
@@ -99,17 +99,36 @@ function create-data-url {
 	echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')";
 }
 
+
+#   D
+# ------------------------------------------------------------
+
+#   E
+# ------------------------------------------------------------
+
+#   F
+# ------------------------------------------------------------
+
 # Flushes the Shell history.
 alias flush-history="history -p";
 alias clear-history='flush-history';
 alias history-clear='flush-history';
 
 
+#   G
+# ------------------------------------------------------------
+
+# Generate a 64 character secret key without a Rakefile.
+function generate-secret-key {
+	ruby -e "require 'securerandom'; puts SecureRandom.hex(64)";
+}
+alias get-secret-key=generate-secret-key;
+
+
 # Returns which program(s) are hogging CPU.
 # @usage get-cpu-hogs
 alias get-cpu-hogs='ps wwaxr -o pid,stat,%cpu,time,command | head -10';
 alias cpu-hogs='get-cpu-hogs';
-
 
 # Searches current directory and sub-directories for the string provided.
 # @usage get-directory-location bin
@@ -131,14 +150,12 @@ function get-file-location {
 alias get-memory-hogs='top -l 1 -o rsize | head -20';
 alias memory-hogs='get-memory-hogs';
 
-
 # Returns the PID(s) for the program provided.
 # @usage get-pid mariadb
 # @returns 1234
 function get-pid {
 	lsof -t -c "$@";
 }
-
 
 # Returns a randomized string of character (30 characters long by default).
 # @usage get-random-string 12
@@ -167,7 +184,6 @@ function get-random-string {
 alias random-string='get-random-string';
 alias ran-str='get-random-string';
 
-
 # Determine size of a file or total size of a directory
 # @usage get-size
 # @returns 4.0K	.env
@@ -184,11 +200,34 @@ function get-size {
 	fi;
 }
 
-
 # Returns number of the current week.
 # @usage get-week
 # @returns 30
 alias get-week='date +%V';
+
+
+#   H
+# ------------------------------------------------------------
+
+#   I
+# ------------------------------------------------------------
+
+#   J
+# ------------------------------------------------------------
+
+#   K
+# ------------------------------------------------------------
+
+#   L
+# ------------------------------------------------------------
+
+#   M
+# ------------------------------------------------------------
+
+# Make directory then change into the newly-created directory.
+function mkcd() {
+  mkdir -p $1 && cd $1
+}
 
 
 # Merge PDF files, preserving hyperlinks, with optional name (sans .pdf).
@@ -205,15 +244,30 @@ function merge-pdfs {
 alias combine-pdfs='merge-pdfs';
 
 
+#   N
+# ------------------------------------------------------------
+
+
+#   O
+# ------------------------------------------------------------
+
+#   P
+# ------------------------------------------------------------
+
+
+#   Q
+# ------------------------------------------------------------
+
+#   R
+# ------------------------------------------------------------
+
 # Reloads the current Shell profile session.
 alias reload-shell="source $HOME/.zshrc";
 alias refresh-shell='reload-shell';
 alias shell-reload='reload-shell';
 
-
 # Recursively finds and deletes `.DS_Store` files.
 alias remove-dsstore="find . -name '*.DS_Store' -type f -exec rm -r {} +";
-
 
 # Remove punctuation from string.
 # @usage kill-punctuation "I can't wait!!!"
@@ -223,6 +277,9 @@ function remove-punctuation {
   echo "$STR" | tr -d '[:punct:]';
 }
 
+
+#   S
+# ------------------------------------------------------------
 
 # Set permissions for files and directories (relative to the current directory).
 function set-permissions {
@@ -263,6 +320,29 @@ function show-files-zip {
 	unzip -l $1
 }
 
+
+#   T
+# ------------------------------------------------------------
+
+
+#   U
+# ------------------------------------------------------------
+
 # Make changes to the current cron file.
 # @usage update-cron
 alias update-cron="crontab -e";
+
+#   V
+# ------------------------------------------------------------
+
+#   W
+# ------------------------------------------------------------
+
+#   X
+# ------------------------------------------------------------
+
+#   Y
+# ------------------------------------------------------------
+
+#   Z
+# ------------------------------------------------------------

@@ -1,44 +1,38 @@
-#!/bin/bash
-# ====================================================== #
-#     SYNC ASSETS                                        #
-# ====================================================== #
-
-
-#   Set variables
-# ------------------------------------------------------------
-ROOT=$PWD;
-source $ROOT/src/config/runner/editor-config;
-source $ROOT/dist/.env-srvrs;
-
-
+#!/usr/bin/env zsh
+# --------------------------------------------------------------------------
+#   Sync assets
+#   Syncs binary assets between environments.
+#   You will need to set the following variables in a project's .env file.
+# --------------------------------------------------------------------------
+#   LOCAL_ROOT - Location of project's root directory on local environment.
+#   SYNC_DIRS - An array of directories, relative to project root.
+#   STAGING_USER - SSH user for staging server.
+#   STAGING_HOST - SSH host for staging server.
+#   STAGING_ROOT - Location of project's root directory on staging server.
+#   PROD_USER - SSH user for production server.
+#   PROD_HOST - SSH host for production server.
+#   PROD_ROOT - Location of project's root directory on production server.
+# --------------------------------------------------------------------------
 
 #   Methods
 # ------------------------------------------------------------
 
-#  help
-#  Provide a usage manual for the user.
-#  @function
-#
+# Provide a usage manual for the user.
 help() {
-  e-header "sync-assets HELP";
-  e-underline "${black}Usage${reset}";
+  log-header "sync-assets HELP";
+  log-underlined-text "${black}Usage${reset}";
   printf "${bold}${white}npm run sync-assets -- [--stage] [--stageTest] [--prod] [--prodTest] ${reset}\n";
   printf "\n\n";
   exit 0;
 }
 
-
-
-#  sync
-#  Provide a usage manual for the user.
-#  @function
-#
+# Main syncing function.
 sync() {
   for (( i=0; i<"${#SYNC_DIRS[@]}"; i++ )); do
     DIR="${SYNC_DIRS[$i]}"
     printf "\n";
-    e-task "Syncing $DIR from $ENV...";
-    rsync $VARS -e 'ssh -p 2222' --size-only --exclude ".*" --exclude ".*/" $REMOTE_USER@$REMOTE_HOST:$REMOTE_ROOT/$DIR $APA_ROOT_LOCAL/$DIR
+    log-note "Syncing $DIR from $ENV...";
+    rsync $VARS -e 'ssh -p 2222' --size-only --exclude ".*" --exclude ".*/" $REMOTE_USER@$REMOTE_HOST:$REMOTE_ROOT/$DIR $LOCAL_ROOT/$DIR
   done
 }
 
@@ -55,41 +49,41 @@ while [[ ! -z $1 ]]; do
     --stageTest)
       ENV="Staging"
       VARS="-ahvn"
-      REMOTE_USER=$APA_USER_STAGE;
-      REMOTE_HOST=$APA_HOST_STAGE;
-      REMOTE_ROOT=$APA_ROOT_STAGE;
+      REMOTE_USER=$STAGING_USER;
+      REMOTE_HOST=$STAGING_HOST;
+      REMOTE_ROOT=$STAGING_ROOT;
       sync;
-      e-success "Asset sync test to $ENV passed.";
+      log-success "Asset sync test to $ENV passed.";
       ;;
 
     --stage)
       ENV="Staging"
       VARS="-ahv"
-      REMOTE_USER=$APA_USER_STAGE
-      REMOTE_HOST=$APA_HOST_STAGE
-      REMOTE_ROOT=$APA_ROOT_STAGE
+      REMOTE_USER=$STAGING_USER;
+      REMOTE_HOST=$STAGING_HOST;
+      REMOTE_ROOT=$STAGING_ROOT;
       sync;
-      e-success "Assets synced from $ENV";
+      log-success "Assets synced from $ENV";
       ;;
 
     --prodTest)
       ENV="Production"
       VARS="-ahvn";
-      REMOTE_USER=$APA_USER_PROD;
-      REMOTE_HOST=$APA_HOST_PROD;
-      REMOTE_ROOT=$APA_ROOT_PROD;
+      REMOTE_USER=$PROD_USER;
+      REMOTE_HOST=$PROD_HOST;
+      REMOTE_ROOT=$PROD_ROOT;
       sync;
-      e-success "Asset sync test to $ENV passed.";
+      log-success "Asset sync test to $ENV passed.";
       ;;
 
     --prod)
       ENV="Production"
       VARS="-ahv";
-      REMOTE_USER=$APA_USER_PROD;
-      REMOTE_HOST=$APA_HOST_PROD;
-      REMOTE_ROOT=$APA_ROOT_PROD;
+      REMOTE_USER=$PROD_USER;
+      REMOTE_HOST=$PROD_HOST;
+      REMOTE_ROOT=$PROD_ROOT;
       sync;
-      e-success "Asset synced from $ENV";
+      log-success "Asset synced from $ENV";
       ;;
     *)
       help

@@ -1,10 +1,10 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-
+#!/usr/bin/env zsh
 # --------------------------------------------------------------------------
-#   Initialization
+#   ZSH remote control
 # --------------------------------------------------------------------------
+
+#   Setup → Initialization
+# ------------------------------------------------------------
 
 # Import environment file.
 source $HOME/.env;
@@ -18,11 +18,16 @@ fi
 # Import global variables
 source $DOTFILES_PATH_ZSH/exports
 
-# Include custom logger with colors.
-source $DOTFILES_PATH_ZSH/bin/colors
-source $DOTFILES_PATH_ZSH/bin/log
+# Import custom logger with colors.
+source $DOTFILES_PATH_ZSH/colors
+source $DOTFILES_PATH_ZSH/log
 
 
+#   Setup → Methods
+# ------------------------------------------------------------
+
+# Loops through a given directory and imports all files found.
+# @usage import_config_files "path/to/dir"
 function import_config_files {
 	# Check for parameters.
 	if [ $# -eq 0 ]; then
@@ -39,12 +44,9 @@ function import_config_files {
 }
 
 
-# --------------------------------------------------------------------------
-#   OhMyZSH
-# --------------------------------------------------------------------------
-
-#   OhMyZSH → Set up
+#   Setup → OhMyZSH → General
 # ------------------------------------------------------------
+
 # Set ZSH theme.
 ZSH_THEME="$ZSH_THEME"
 
@@ -52,12 +54,15 @@ ZSH_THEME="$ZSH_THEME"
 COMPLETION_WAITING_DOTS="true"
 
 # Set format of timestamps for history.
-# @returns 1959-02-03
-HIST_STAMPS="yyyy-mm-dd"
+# @see 
+# TODO Add URL for datetime options.
+# @returns 1962-08-06_18:18:18
+HIST_STAMPS="YYYY-MM-DD_HH:mm:ss"
 
 
-#   OhMyZSH → Plugins
+#   Setup → OhMyZSH → Plugins
 # ------------------------------------------------------------
+
 # Set up plugin queue.
 plugins=(
   zsh-history-enquirer
@@ -83,29 +88,30 @@ plugins=(
 import_config_files "$DOTFILES_PATH_ZSH/ohmyzsh/plugins"
 
 
-#   OhMyZSH → Themes
+#   Setup → OhMyZSH → Themes
 # ------------------------------------------------------------
+
 # Include OhMyZSH theme file.
 source $DOTFILES_PATH_ZSH/ohmyzsh/themes/$ZSH_THEME
 
 
-#   OhMyZSH → Begin
-# ------------------------------------------------------------
+# Start OhMyZSH.
 source $ZSH/oh-my-zsh.sh
 
 
-
-# --------------------------------------------------------------------------
-#   User configuration
-# --------------------------------------------------------------------------
-
 #   User configuration → Environment
 # ------------------------------------------------------------
+
 # Aliases
 source $DOTFILES_PATH_ZSH/aliases
 
 # Command line interfaces
 import_config_files "$DOTFILES_PATH_ZSH/cli"
+
+# Custom executables.
+source $DOTFILES_PATH_ZSH/bin/create-project;
+source $DOTFILES_PATH_ZSH/bin/reboot-enedos;
+
 
 # --------------------------------------------------------------------------
 #   $PATH
@@ -113,5 +119,4 @@ import_config_files "$DOTFILES_PATH_ZSH/cli"
 #   @note Take that, $PATH!
 #   @see https://bit.ly/3BYvjUW
 # --------------------------------------------------------------------------
-
 export PATH="$HOME/.composer/vendor/bin:$HOMEBREW_PREFIX/bin:$PATH"

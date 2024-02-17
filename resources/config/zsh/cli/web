@@ -1,17 +1,39 @@
+#!/usr/bin/env zsh
 # --------------------------------------------------------------------------
 #   ZSH → CLI → Web
 #   @see https://bit.ly/2AD7bYb
 # --------------------------------------------------------------------------
 
+# Creates a React app with TypeScript, React Icons, and TailwindCSS.
+function create-react-app {
+	# Check for custom directory name;
+	if [ $# -eq 0 ]; then
+		REACT_DIR='my-app';
+	else
+		REACT_DIR=$1;
+	fi
 
-# Creates a Codepen folder and three inital files.
-function build-codepen {
-	SANDBOX='/Users/nick/Sites/sandbox/codepen';
-	mkdir -p $SANDBOX/$1;
-	cp $SANDBOX/index.html $SANDBOX/$1/index.html;
-	cp $SANDBOX/index.js $SANDBOX/$1/index.js;
-	cp $SANDBOX/index.scss $SANDBOX/$1/index.scss;
+	npx create-react-app $REACT_DIR --template typescript;
+	cd $REACT_DIR;
+	npm install -D tailwindcss react-icons;
+	npx tailwindcss init;
 }
+
+# Creates a Next.js app with TypeScript and TailwindCSS.
+function create-next-app {
+	# Check for custom directory name;
+	if [ $# -eq 0 ]; then
+		NEXT_DIR='my-app';
+	else
+		NEXT_DIR=$1;
+	fi
+
+	npx create-next-app@latest $NEXT_DIR;
+}
+
+# Create README.md
+# @usage create-readme
+alias create-readme="npx readme-md-generator";
 
 # Flushes the DNS cache.
 # @usage flush-dns

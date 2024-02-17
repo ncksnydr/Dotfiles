@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 # --------------------------------------------------------------------------
 #   ZSH → Log
 #   A custom set of functions for pretty logging.
@@ -7,14 +8,15 @@
 # --------------------------------------------------------------------------
 
 
-#   Sectional separators
+#   Section headers
+#   Pre-styled headers for specific situations or needs.
 # ------------------------------------------------------------
+
 # Log intro flag; should be used once per script.
 # @usage log-intro "Hello world".
 log-intro() {
-  printf "${bold}${bg_magenta}${white}      $1      ${reset}\n\n";
+  printf "\n${bold}${bg_magenta}${white}      $1      ${reset}\n\n";
 }
-
 
 # Log header text; should be used for each script section.
 # @usage log-header "Hello world".
@@ -22,13 +24,36 @@ log-header() {
   printf "\n${bold}${bg_magenta}${white}==========  %s  ==========${reset}\n" "$@"
 }
 
+# Log error message.
+# @usage log-error "Hello world".
+log-error() {
+	printf "\n";
+  printf "${underline}${bold}${red}✖ ERROR ${reset}\n"
+	printf "${red}%s${reset}\n" "_____________________________________________";
+  printf "${red}%s${reset}\n" "$@";
+  printf "\n";
+}
+
+# Log success message.
+# @usage log-success "Hello world".
+log-success() {
+	printf "\n";
+  printf "${underline}${bold}${green}✔ SUCCESS ${reset}\n"
+  printf "${green}%s${reset}\n" "$@";
+  printf "\n";
+}
 
 # Log note; should be used for listing items.
 # @usage log-note "Hello world".
 log-note() {
-  printf "${bold}${white}➜${reset}  ${white}%s${reset}\n" "$@"
+  printf "\n${green}➜${reset}  ${underline}${bold}${white}%s${reset}\n" "$@"
 }
 
+# Log prompt option.
+# @usage log-option "Hello world".
+log-option() {
+  printf "${white}%s${reset}\n" "$@"
+}
 
 # Log warning message.
 # @usage log-warning "Hello world".
@@ -37,30 +62,10 @@ log-warning() {
 }
 
 
-# Log error message.
-# @usage log-error "Hello world".
-log-error() {
-	printf "\n";
-  printf "${underline}${bold}${red}✖ ERROR ${reset}\n"
-	printf "${red}%s${reset}\n" "------------------------------";
-  printf "${red}%s${reset}\n" "$@";
-  printf "\n";
-  exit 1;
-}
-
-
-# Log success message.
-# @usage log-success "Hello world".
-log-success() {
-  printf "\n";
-  printf "${green}_____________________________________________%s${reset}\n"
-  printf "${green}✔ %s${reset}\n" "$@"
-}
-
-
-
 #   Inline styling
+#   Functions to custom-format text.
 # ------------------------------------------------------------
+
 # Log bold.
 # @usage log-bold "Hello world".
 log-bold() {

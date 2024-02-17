@@ -1,53 +1,36 @@
-#!/usr/bin/env bash
-# ====================================================== #
-#     BUMP VERSION                                       #
-# ====================================================== #
-
-#   Set variables
-# ------------------------------------------------------------
-ROOT=$PWD;
-source $ROOT/src/config/runner/editor-config;
-source $ROOT/dist/.env-srvrs;
-
-
+#!/usr/bin/env zsh
+# --------------------------------------------------------------------------
+#   Bump Version
+#   Bumps the version of the NPM package, Git repo, or both.
+# --------------------------------------------------------------------------
 
 #   Methods
 # ------------------------------------------------------------
-
-#  help
 #  Provide a usage manual for the user.
-#  @function
-#
 help() {
-  e-header "bump-version HELP";
-  e-underline "${black}Usage${reset}";
+  log-header "bump-version HELP";
+  log-underlined-text "${black}Usage${reset}";
   printf "${bold}${white}npm run bump-version -- [--patch] [--minor 'TAG MESSAGE'] [--major 'TAG MESSAGE']${reset}\n";
   printf "\n\n";
   exit 1;
 }
 
-#  error
 #  Creates a error message to the user.
-#  @function
 #  @param [String] Custom error message.
-#
 error() {
-  e-error "$1";
+  log-error "$1";
   exit 1;
 }
 
-
-#  bump-npm
 #  Increases the current version of the NPM package.
-#  @function
 #  @param [String] $LEVEL  User-set level for increase.
 #  @param [String] $MSG    Tag message describing the increase; required for --minor and --major.
 #
 bump-npm() {
-  e-task "Bumping NPM version...";
+  log-note "Bumping NPM version...";
   if [[ $LEVEL != "patch" ]]; then
     if [[ -z $MSG ]]; then
-      error "A tagging message is required for the $LEVEL level. See --help for more details.";
+      log-error "A tagging message is required for the $LEVEL level. See --help for more details.";
     fi;
     npm version $LEVEL -m $MSG;
   else
@@ -55,16 +38,13 @@ bump-npm() {
   fi
 }
 
-#  bump-git
 #  Creates a tagged commit in the Git repository.
-#  @function
 #  @param [String] $MSG  Tag message describing the increase.
-#
 bump-git() {
   if [[ -z $MSG ]]; then
-    error "A tagging message is required for the $LEVEL level. See --help for more details.";
+    log-error "A tagging message is required for the $LEVEL level. See --help for more details.";
   fi;
-  e-task "Creating Git tag...";
+  log-note "Creating Git tag...";
   NPM_VERSION_RAW=$(jq '.version' $PWD/package.json);
   NPM_VERSION="${NPM_VERSION_RAW%\"}"
   NPM_VERSION="${NPM_VERSION#\"}"
@@ -75,31 +55,14 @@ bump-git() {
 
 #   Intro
 # ------------------------------------------------------------
-e-intro "Bump Version";
-
+log-intro "Bump version";
 
 # If the user did not add a flag, send them to help().
 if [[ -z $1 ]]; then
   help
 fi
 
-# If the user did add a flag, send them to the correct location.
-
-# --major
-#  Increase a major version (e.g. 1.x.x). Affects NPM and Git.
-#  MAJOR version when you make incompatible API changes.
-
-
-# --minor
-#  Increase a minor version (e.g. x.1.x). Affects NPM and Git.
-#  MINOR version when you add functionality in a backwards compatible manner.
-
-# --patch
-#  Increase a patch version (e.g. x.x.1). Affect NPM only.
-#  PATCH version when you make backwards compatible bug fixes.
-
-
-
+# If a flag exists, execute script.
 while [[ ! -z $1 ]]; do
   ARG="$1"
   MSG="$2"
@@ -121,16 +84,16 @@ while [[ ! -z $1 ]]; do
     --major)
       bump-npm;
       bump-git;
-      e-success "NPM and Git $LEVEL versions bumped";
+      log-success "NPM and Git $LEVEL versions bumped";
       ;;
     --minor)
       bump-npm;
       bump-git;
-      e-success "NPM and Git $LEVEL versions bumped";
+      log-success "NPM and Git $LEVEL versions bumped";
       ;;
     --patch)
       bump-npm;
-      e-success "NPM $LEVEL version bumped.";
+      log-success "NPM $LEVEL version bumped.";
       ;;
   esac
 done
