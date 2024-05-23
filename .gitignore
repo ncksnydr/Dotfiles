@@ -1,20 +1,7 @@
-#/
-	#  GitIgnore
-	#  @link https://www.toptal.com/developers/gitignore/ GitIgnore generator.
-	#
-#/
-
-
-
 # --------------------------------------------------------------------------
-#   Project-specific rules
+#   Dotfiles → Git Ignore
+#   An ignore file for the Dotfiles repository.
 # --------------------------------------------------------------------------
-
-#   Temporarily ignoring
-#   @note For items that I am actively using, but need to
-#         organize and vet a bit more.
-# ------------------------------------------------------------
-
 
 
 
@@ -25,7 +12,11 @@
 .env
 
 # Git includes
-./resources/git/**/*.inc
+config/git/hooks/**
+config/git/includes/**
+
+# Keep Git sample files
+!config/git/**/*.sample
 
 #   Build files
 # ------------------------------------------------------------
