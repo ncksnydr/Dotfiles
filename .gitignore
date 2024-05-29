@@ -3,11 +3,16 @@
 #   An ignore file for the Dotfiles repository.
 # --------------------------------------------------------------------------
 
-
+#   Build files
+# ------------------------------------------------------------
+.eslintignore
+.eslintrc
+.markdownlint.json
+.prettierignore
+.prettierrc
 
 #   Configuration files
 # ------------------------------------------------------------
-
 # Environment
 .env
 
@@ -18,8 +23,7 @@ config/git/includes/**
 # Keep Git sample files
 !config/git/**/*.sample
 
-#   Build files
-# ------------------------------------------------------------
+
 
 
 #   Others
