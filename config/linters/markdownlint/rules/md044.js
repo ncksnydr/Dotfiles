@@ -7,8 +7,12 @@
 
 // TODO: Fill out more proper names.
 module.exports = {
-  "proper-names": [
-    "JavaScript",
-    "TypeScript"
-  ]
+  "proper-names": {
+    "code_blocks": true,
+    "html_elements": false,
+    "names": [
+      "JavaScript",
+      "TypeScript"
+    ]
+  }
 };
