@@ -3,17 +3,14 @@
     "version": "0.0.0",
     "description": "A collection of dotfiles.",
     "scripts": {
-        "build-linter-babel": "npx run-func ./resources/config/helpers/buildLinterConfig.js babel",
-        "build-linter-eslint": "npx run-func ./resources/config/helpers/buildLinterConfig.js eslint",
-        "build-linter-markdown": "npx run-func ./resources/config/helpers/buildLinterConfig.js markdownlint",
-        "build-linter-phpcsfixer": "npx run-func ./resources/config/helpers/buildLinterConfig.js phpCsFixer",
-        "build-linter-prettier": "npx run-func ./resources/config/helpers/buildLinterConfig.js prettier",
-        "build-linter-stylelint": "npx run-func ./resources/config/helpers/buildLinterConfig.js stylelint",
+        "build:linter-prettier": "npx run-func ./config/helpers/buildLinterConfig.js prettier",
+        "build:linter-markdownlint": "npx run-func ./config/helpers/buildLinterConfig.js markdownlint",
         "sync-dotfiles": "bash $PWD/resources/config/helpers/sync-dotfiles"
     },
     "author": "Nick Snyder",
     "license": "UNLICENSED",
     "devDependencies": {
+        "@vitejs/plugin-react": "^4.3.0",
         "autoprefixer": "^10.4.14",
         "browserslist": "^4.21.10",
         "cssnano": "^6.0.1",
@@ -28,18 +25,19 @@
         "eslint-plugin-react": "^7.33.1",
         "fs": "^0.0.1-security",
         "glob": "^10.3.3",
+        "lodash": "^4.17.21",
         "lodash.mergewith": "^4.6.2",
         "markdownlint": "^0.29.0",
         "postcss": "^8.4.27",
         "prettier": "^3.0.1",
         "prettier-plugin-css-order": "^2.0.0",
         "prettier-plugin-tailwindcss": "^0.4.1",
-        "stylelint": "^15.10.2",
-        "stylelint-config-recommended": "^13.0.0",
-        "stylelint-config-standard": "^34.0.0",
-        "stylelint-config-standard-scss": "^10.0.0",
-        "stylelint-prettier": "^4.0.2",
-        "stylelint-scss": "^5.1.0",
-        "tailwindcss": "^3.3.3"
+        "tailwindcss": "^3.3.3",
+        "vite": "^5.2.11",
+        "vite-plugin-mkcert": "^1.17.5",
+        "vitest": "^1.6.0"
+    },
+    "dependencies": {
+        "typescript": "^5.4.5"
     }
 }
