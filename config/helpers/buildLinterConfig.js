@@ -81,7 +81,7 @@ const prettier = () => {
 // Markdownlint.
 const markdownlint = () => {
 	const fileName = '.markdownlint.json';
-	const markdownlintOptions = buildLinterConfig({ pathToRules: `${lintersPath}/markdownlint/rules/*.js` });
+	const markdownlintOptions = mergeConfigFiles({ pathToRules: `${lintersPath}/markdownlint/rules/*.js` });
 	saveToFile(markdownlintOptions, `${dotfilesPath}/${fileName}`, 'json');
 };
 
