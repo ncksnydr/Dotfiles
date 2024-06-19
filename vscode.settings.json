@@ -110,9 +110,9 @@
 
     //  Extensions -> PHP-CS-Fixer
     //-----------------------------------
-    "php-cs-fixer.executablePath": "/Users/nick/.composer/vendor/bin/php-cs-fixer",
     "php-cs-fixer.allowRisky": true,
-    "ignorePHPVersion": true,
+    "php-cs-fixer.executablePath": "/Users/nick/.composer/vendor/bin/php-cs-fixer",
+    "php-cs-fixer.ignorePHPVersion": true,
     "php-cs-fixer.onsave": true,
 
     //  Extensions -> Prettier

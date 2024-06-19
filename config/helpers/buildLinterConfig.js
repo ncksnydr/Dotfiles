@@ -13,6 +13,7 @@
 const { globSync } = require('glob');
 const { mergeWith } = require('lodash');
 const { copyFileSync, writeFileSync } = require('fs');
+const replace = require('replace-in-file');
 
 // Variables
 const dotfilesPath = process.cwd();
@@ -43,9 +44,21 @@ const mergeConfigFiles = (options) => {
 
 
 // Moves ignore file.
-const moveIgnoreFile = (source, destination) => {
+const copyFile = (source, destination) => {
 	copyFileSync(String(source), String(destination));
 };
+
+
+// Replace placeholder with actual value.
+const replaceTextInFile = (file, placeholder, value) => {
+	const options = {
+		files: String(file),
+		from: new RegExp(placeholder, 'g'),
+		to: value
+	};
+	replace.sync(options);
+};
+
 
 // Saves configuration to file.
 const saveToFile = (data, path, ext) => {
@@ -61,12 +74,27 @@ const saveToFile = (data, path, ext) => {
  *   Configs
  * ------------------------------------------------------ */
 
+// Markdownlint
+const markdownlint = () => {
+	const fileName = '.markdownlint.json';
+	const markdownlintOptions = mergeConfigFiles({ pathToRules: `${lintersPath}/markdownlint/rules/*.js` });
+	saveToFile(markdownlintOptions, `${dotfilesPath}/${fileName}`, 'json');
+};
+
+// PHP-CS-Fixer
+const phpCsFixer = () => {
+	const phpCsFixerOptions = mergeConfigFiles({ pathToRules: `${lintersPath}/php-cs-fixers/rules/*.js` });
+	copyFile(`${lintersPath}/php-cs-fixer/.php-cs-fixer.php`, `${dotfilesPath}/.php-cs-fixer.php`);
+	replaceTextInFile(`${dotfilesPath}/.php-cs-fixer.php`, '@@RULES@@', JSON.stringify(phpCsFixerOptions));
+};
+
+
 // Prettier
 const prettier = () => {
 	const fileName = '.prettierrc';
 	const prettierOptions = mergeConfigFiles({ pathToRules: `${lintersPath}/prettier/{rules,overrides,plugins}/*.js` });
 	saveToFile(prettierOptions, `${dotfilesPath}/${fileName}`, 'json');
-	moveIgnoreFile(`${lintersPath}/prettier/.prettierignore`, `${dotfilesPath}/.prettierignore`);
+	copyFile(`${lintersPath}/prettier/.prettierignore`, `${dotfilesPath}/.prettierignore`);
 };
 
 
@@ -78,37 +106,9 @@ const prettier = () => {
 // 	saveToFile(eslintOptions, `${dotfilesPath}/${fileName}`, 'json');
 // };
 
-// Markdownlint.
-const markdownlint = () => {
-	const fileName = '.markdownlint.json';
-	const markdownlintOptions = mergeConfigFiles({ pathToRules: `${lintersPath}/markdownlint/rules/*.js` });
-	saveToFile(markdownlintOptions, `${dotfilesPath}/${fileName}`, 'json');
-};
-
-// // PHP-CS-Fixer.
-// const phpCsFixer = () => {
-// 	const fileName = '.php-cs-fixer-rules.json';
-// 	const rules = buildLinterConfig({ pathToRules: `${lintersPath}/php-cs-fixer/**/*.js` });
-// 	saveToFile(rules, `${dotfilesPath}/${fileName}`, 'json');
-// };
-
-// // Prettier
-// const prettier = () => {
-// 	// Yes, I know Prettier isn't technically a linter. Get off my back. XOXO — Nick
-// 	const fileName = '.prettierrc';
-// 	const prettierOptions = buildLinterConfig({ pathToRules: `${lintersPath}/prettier/{rules,overrides}/*.js` });
-// 	saveToFile(prettierOptions, `${dotfilesPath}/${fileName}`, 'json');
-// };
-
-// // Stylelint
-// const stylelint = () => {
-// 	const fileName = '.stylelintrc.json';
-// 	const stylelintOptions = buildLinterConfig({ pathToRules: `${lintersPath}/stylelint/rules/**/*.js` });
-// 	saveToFile(stylelintOptions, `${dotfilesPath}/${fileName}`, 'json');
-// };
-
 
 module.exports = {
 	markdownlint,
+	phpCsFixer,
 	prettier
 };
