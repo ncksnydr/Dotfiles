@@ -15,6 +15,9 @@ if [[ -z ${ENVIRONMENT} ]]; then
 	exit 1;
 fi
 
+# Initial $PATH
+export PATH=$HOME/.composer/vendor/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/bin:$PYENV_ROOT/bin:/usr/local/bin:$PATH
+
 # Import global variables
 source $DOTFILES_PATH_ZSH/exports
 
@@ -119,4 +122,6 @@ source $DOTFILES_PATH_ZSH/bin/reboot-enedos;
 #   @note Take that, $PATH!
 #   @see https://bit.ly/3BYvjUW
 # --------------------------------------------------------------------------
-export PATH="$HOME/.composer/vendor/bin:$HOMEBREW_PREFIX/bin:$PATH"
+export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$ANDROID_HOME/tools:$PATH
+export PATH=$ANDROID_NDK_HOME:$PATH

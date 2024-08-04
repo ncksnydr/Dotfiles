@@ -5,8 +5,6 @@
  * --------------------------------------------------------------------------
 */
 
-
-
 /**
  *   Imports and variables
  * ------------------------------------------------------ */
@@ -99,16 +97,17 @@ const prettier = () => {
 
 
 
-// // ESLint
-// const eslint = () => {
-// 	const fileName = '.eslintrc';
-// 	const eslintOptions = buildLinterConfig({ pathToRules: `${lintersPath}/eslint/{rules,plugins}/*.js` });
-// 	saveToFile(eslintOptions, `${dotfilesPath}/${fileName}`, 'json');
-// };
+// ESLint
+const eslint = () => {
+	const fileName = '.eslintrc';
+	const eslintOptions = buildLinterConfig({ pathToRules: `${lintersPath}/eslint/{rules,plugins}/*.js` });
+	saveToFile(eslintOptions, `${dotfilesPath}/${fileName}`, 'json');
+};
 
 
 module.exports = {
 	markdownlint,
 	phpCsFixer,
-	prettier
+	prettier,
+	eslint
 };

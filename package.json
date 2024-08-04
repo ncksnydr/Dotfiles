@@ -5,7 +5,9 @@
     "scripts": {
         "build:linter-prettier": "npx run-func ./config/helpers/buildLinterConfig.js prettier",
         "build:linter-markdownlint": "npx run-func ./config/helpers/buildLinterConfig.js markdownlint",
-        "sync-dotfiles": "bash $PWD/resources/config/helpers/sync-dotfiles"
+        "build:linter-eslint": "npx run-func ./config/helpers/buildLinterConfig.js eslint",
+        "sync:dotfiles": "source $PWD/config/helpers/dotfiles && sync_dotfiles",
+        "clean:dotfiles": "source $PWD/config/helpers/dotfiles && clean_dotfiles"
     },
     "author": "Nick Snyder",
     "license": "UNLICENSED",

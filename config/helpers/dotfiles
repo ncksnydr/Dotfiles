@@ -1,0 +1,43 @@
+#!/usr/bin/env
+
+# --------------------------------------------------------------------------
+#   Helpers → Dotfiles
+#   Utilities for managing Dotfiles.
+# --------------------------------------------------------------------------
+
+source $PWD/config/zsh/colors;
+source $PWD/config/zsh/log;
+
+
+DOTFILES_ARR=(
+  '.browserslistrc'
+  '.env'
+  '.eslintignore'
+  '.eslintrc'
+  '.gitconfig'
+  '.markdownlint.json'
+  '.prettierignore'
+  '.prettierrc'
+  '.zshrc'
+);
+
+
+sync_dotfiles() {
+  log_intro "Building Dotfiles";
+  for DOTFILE in "${DOTFILES_ARR[@]}"; do
+    log_note "Syncing $DOTFILE";
+    ln -s $PWD/$DOTFILE $HOME/$DOTFILE;
+  done;
+  log_success "Dotfiles built successfully";
+}
+
+clean_dotfiles() {
+  log_intro "Cleaning Dotfiles";
+  for DOTFILE in "${DOTFILES_ARR[@]}"; do
+    if [[ -L "$HOME/$DOTFILE" ]]; then
+      log_note "Removing $DOTFILE";
+      rm $HOME/$DOTFILE;
+    fi
+  done;
+  log_success "Dotfiles cleaned successfully";
+}
