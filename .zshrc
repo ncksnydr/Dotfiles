@@ -122,6 +122,10 @@ source $DOTFILES_PATH_ZSH/bin/reboot-enedos;
 #   @note Take that, $PATH!
 #   @see https://bit.ly/3BYvjUW
 # --------------------------------------------------------------------------
-export PATH=$ANDROID_HOME/platform-tools:$PATH
-export PATH=$ANDROID_HOME/tools:$PATH
-export PATH=$ANDROID_NDK_HOME:$PATH
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
