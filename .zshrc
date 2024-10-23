@@ -15,6 +15,9 @@ if [[ -z ${ENVIRONMENT} ]]; then
 	exit 1;
 fi
 
+# Initial $PATH
+export PATH=$HOME/.composer/vendor/bin:/opt/homebrew/bin:/opt/homebrew/sbin:$HOME/bin:$PYENV_ROOT/bin:/usr/local/bin:$PATH
+
 # Import global variables
 source $DOTFILES_PATH_ZSH/exports
 
@@ -119,4 +122,10 @@ source $DOTFILES_PATH_ZSH/bin/reboot-enedos;
 #   @note Take that, $PATH!
 #   @see https://bit.ly/3BYvjUW
 # --------------------------------------------------------------------------
-export PATH="$HOME/.composer/vendor/bin:$HOMEBREW_PREFIX/bin:$PATH"
+
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

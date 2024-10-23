@@ -2,6 +2,12 @@
 
 A collection of Shell aliases, plugins, functions and web development configuration files.
 
+## TODO
+
+- [ ] Add Vite
+- [ ] Add TypeScript config
+- [ ] TailwindCSS
+  - [ ] Convert `module.export` to ESM
 
 TODO Update PHPCSFixer config
 TODO Update ESLint config
