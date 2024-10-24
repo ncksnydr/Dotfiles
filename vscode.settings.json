@@ -23,9 +23,26 @@
   //  Core → Security
   //------------------------------------------------------
   "security.workspace.trust.untrustedFiles": "open",
+
+  //  Core → Terminal
+  //------------------------------------------------------
+  "terminal.integrated.allowedLinkSchemes": [
+    "file",
+    "http",
+    "https",
+    "mailto",
+    "vscode",
+    "vscode-insiders",
+    "docker-desktop"
+  ],
+
+  //  Core → Workbench
+  //------------------------------------------------------
 	"workbench.colorTheme": "Winter is Coming (Dark Blue)",
+  "workbench.activityBar.location": "hidden",
   "workbench.iconTheme": "vscode-great-icons",
   "workbench.settings.applyToAllProfiles": [],
+  "workbench.startupEditor": "none",
 
   //  Extensions → Better Comments
   //------------------------------------------------------
@@ -67,6 +84,10 @@
   "git.openRepositoryInParentFolders": "never",
   "git.autofetch": true,
 
+   //  Extensions → Github
+  //------------------------------------------------------
+  "github.copilot.editor.enableAutoCompletions": true,
+
   //  Extensions → Markdown
   //------------------------------------------------------
   "markdown.extension.orderedList.autoRenumber": false,
@@ -74,9 +95,15 @@
 
   //  Extensions → Markdown Preview
   //------------------------------------------------------
+  "markdown-preview-github-styles.colorTheme": "light",
 
   //  Extensions → Prettier
   //------------------------------------------------------
+
+  //  Extensions → Redhat
+  //------------------------------------------------------
+  "redhat.telemetry.enabled": false,
+
 
   //  Languages → CSS
   //------------------------------------------------------
@@ -98,23 +125,12 @@
       "source.fixAll.markdownlint": "explicit"
     }
   },
-  "markdown-preview-github-styles.colorTheme": "light",
-  "workbench.activityBar.location": "hidden",
-  "githubPullRequests.pullBranch": "never",
-  "workbench.startupEditor": "none",
-  "editor.codeActionsOnSave": {
-    
-  },
-  "github.copilot.editor.enableAutoCompletions": true,
-  "redhat.telemetry.enabled": false,
-  "terminal.integrated.allowedLinkSchemes": [
-    "file",
-    "http",
-    "https",
-    "mailto",
-    "vscode",
-    "vscode-insiders",
-    "docker-desktop"
-  ],
-  "eslint.codeActionsOnSave.rules": null
+  
+  //  Lanugages → Python
+  //------------------------------------------------------
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": true
+  }
 }
