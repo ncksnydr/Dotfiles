@@ -1,20 +1,20 @@
 #!/usr/bin/env zsh 
 
 # --------------------------------------------------------------------------
-#   ZSH → CLI → youtube-dl
+#   ZSH → CLI → yt-dlp
 #   @see https://bit.ly/2AD7bYb
 # --------------------------------------------------------------------------
 
 function yt-botw {
-	youtube-dl $1 -o '$HOME/Desktop/botw/%(title)s/%(title)s.%(ext)s'
+	yt-dlp --cookies-from-browser="brave" $1 -o '$HOME/Desktop/botw/%(title)s/%(title)s.%(ext)s'
 }
 
 function yt-flac-single {
-	youtube-dl -f "bestaudio/best" -ciw -o "%(title)s.%(ext)s" -v --extract-audio --audio-format flac $1;
+	yt-dlp --cookies-from-browser="brave" -f "bestaudio/best" -ciw -o "%(title)s.%(ext)s" -v --extract-audio --audio-format flac $1;
 }
 
 function yt-flac-playlist {
-	youtube-dl -f "bestaudio/best" -ciw -o "%(title)s.%(ext)s" -v --extract-audio --audio-format flac --yes-playlist $1;
+	yt-dlp --cookies-from-browser="brave" -f "bestaudio/best" -ciw -o "%(title)s.%(ext)s" -v --extract-audio --audio-format flac --yes-playlist $1;
 }
 
 function yt-flac {
