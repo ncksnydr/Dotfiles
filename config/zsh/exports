@@ -77,11 +77,16 @@ export MANPAGER="less -X"
 
 #   N
 # ------------------------------------------------------------
+
+# Set directory for Node Version Manager.
+export NVM_DIR="$HOME/.nvm"
+
 # Allow 32³ entries the default is 1000.
 export NODE_REPL_HISTORY_SIZE="32768"
 
 # Use sloppy mode by default, matching web browsers.
 export NODE_REPL_MODE="sloppy"
+
 
 #   O
 # ------------------------------------------------------------
@@ -104,7 +109,7 @@ export PYTHONIOENCODING="UTF-8"
 
 #   S
 # ------------------------------------------------------------
-export SBOT_DIR="$HOME/Sites/projects/sbot/"
+export SBOT_DIR="/Users/nsnyder/Sites/02-areas/dk/sbot"
 
 #   T
 # ------------------------------------------------------------
