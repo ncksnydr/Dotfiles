@@ -38,7 +38,7 @@
 
   //  Core → Workbench
   //------------------------------------------------------
-	"workbench.colorTheme": "Winter is Coming (Dark Blue)",
+  "workbench.colorTheme": "Winter is Coming (Dark Blue)",
   "workbench.activityBar.location": "hidden",
   "workbench.iconTheme": "vscode-great-icons",
   "workbench.settings.applyToAllProfiles": [],
@@ -84,7 +84,7 @@
   "git.openRepositoryInParentFolders": "never",
   "git.autofetch": true,
 
-   //  Extensions → Github
+  //  Extensions → Github
   //------------------------------------------------------
   "github.copilot.editor.enableAutoCompletions": true,
 
@@ -103,7 +103,6 @@
   //  Extensions → Redhat
   //------------------------------------------------------
   "redhat.telemetry.enabled": false,
-
 
   //  Languages → CSS
   //------------------------------------------------------
@@ -125,12 +124,16 @@
       "source.fixAll.markdownlint": "explicit"
     }
   },
-  
+
   //  Lanugages → Python
   //------------------------------------------------------
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnPaste": false,
     "editor.formatOnSave": true
-  }
+  },
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "chat.editing.alwaysSaveWithGeneratedChanges": true
 }
